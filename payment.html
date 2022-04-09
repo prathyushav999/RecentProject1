@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+/*This CSS is only for demo purposes */
+table, td, th {border: 1px solid; width:751px}
+th {background-color: #eaeaea;}
+th, td {padding: 12px;}
+select {margin: 1em 0;}
+
+</style>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,8 +80,143 @@
 							</div>
 						</td>
 						<td>
-							<div style="width: 1350px; height: 900px; background-image: url('dummy/treechartbg.jpg');">Hello
-								payment screen</div>
+							<div><select id="choice">
+  <option value="all">All</option>
+  <option value="serviceOne">Board-Certified Lactation Consultants</option>
+  <option value="serviceTwo">Breastfeeding Classes</option>
+  <option value="serviceThree">Breastfeeding-Friendly Environments</option>
+
+  <option value="serviceFour">Certified Lactation Counselors</option>
+  <option value="serviceFive">Counselor, Consultant, or Leader</option>
+  <option value="serviceSix">Extended Lactation</option>
+
+  <option value="serviceSeven">Home Visits</option>
+
+  <option value="serviceEight">Milk Bank Drop-Off</option>
+  <option value="serviceNine">Peer Support</option>
+  <option value="serviceTen">Phone Support</option>
+
+  <option value="serviceEleven">Postpartum Breastfeeding Care</option>
+  <option value="serviceTwelve">Prenatal Education</option>
+
+</select>
+
+<table id="table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr class="all serviceEleven">
+        <td><a href="http://www.saludclinic.org/" target="_blank">Salud Family Health Center</a></td>
+      <td>970-484-0999</td>
+      <td>220 E. Rogers Rd.</td>
+        <td>Longmont</td>
+    </tr>
+        </tr>
+      <tr class="all serviceEleven">
+        <td><a href="https://clinica.org/" target="_blank">Clinica Family Health Center</a></td>
+      <td>303-650-4460</td>
+      <td>1345 Plaza Court N.</td>
+        <td>Lafayette</td>
+    </tr>
+      <tr class="all serviceEleven">
+        <td><a href="https://clinica.org/" target="_blank">People's Medical Clinic</a></td>
+      <td>303-650-4460</td>
+      <td>2525 13th St.</td>
+        <td>Boulder</td>
+    </tr>
+      <tr class="all serviceEleven serviceTwo serviceTen serviceOne serviceFour serviceEight serviceFive serviceNine serviceTen">
+        <td><a href="http://www.bch.org/" target="_blank">Boulder Community Health</a></td>
+      <td>720-854-7000</td>
+      <td>4747 Arapahoe Ave.</td>
+        <td>Boulder</td>
+    </tr>
+   <tr class="all serviceTwelve serviceTwo serviceEleven serviceOne serviceFour serviceEight serviceFive serviceNine serviceTen serviceSix">
+     <td><a href="http://www.avistahospital.org/avh/home/" target="_blank">Avista Hospital</a></td>
+     <td>303-673-1000</td>
+     <td>100 Health Park Dr.</td>
+     <td>Louisville</td>
+</tr>
+<tr class="all serviceTwelve serviceEleven serviceOne serviceFour serviceEight serviceFive serviceTen">
+  <td><a href="http://www.goodsamaritancolorado.org/" target="_blank">Good Samaritan Medical Center</a></td>
+  <td>303-689-4000</td>
+  <td>200 Exempla Cr.</td>
+  <td>Lafayette</td>
+</tr>
+<tr class="all serviceTwelve serviceTwo serviceEleven serviceFour serviceFive serviceNine serviceTen">
+  <td><a href="http://www.luhcares.org/" target="_blank">Longmont United Hospital</a></td>
+  <td>303-651-5111</td>
+  <td>1950 Mountain View Ave.</td>
+  <td>Longmont</td>
+</tr>
+<tr class="all serviceTwo serviceEleven serviceOne serviceFour serviceFive serviceNine">
+  <td><a href="http://www.birthcenterofboulder.com/" target="blank">Birth Center of Boulder</a></td>
+  <td>303-443-3993</td>
+  <td>2800 Folsom St.</td>
+  <td>Boulder</td>
+</tr>
+<tr class="all serviceTwelve serviceOne serviceFour serviceFive serviceNine serviceTen serviceSix">
+  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/wicindex.aspx" target="_blank">WIC Program</a></td>
+  <td>303-413-7500</td>
+  <td>3482 Broadway</td>
+  <td>Boulder</td>
+</tr>
+<tr class="all serviceOne serviceSeven">
+  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/genesisservices.aspx" target="_blank">GENESIS Program</a></td>
+  <td>303-413-7500</td>
+  <td>3482 Broadway</td>
+  <td>Boulder</td>
+  <tr>
+ <tr class="all serviceTwelve serviceTwo serviceFour serviceFive serviceNine serviceThree">
+   <td><a href="http://family-garden.org/" target="_blank">Family Garden Parenting Resource Center</a></td>
+   <td>303-678-1144</td>
+   <td>600 S. Airport Rd., Ste. B</td>
+   <td>Longmont</td>
+</tr>
+<tr class="all serviceTwelve serviceTwo serviceOne serviceFive serviceNine serviceSix serviceThree">
+  <td><a href="http://www.themamahood.com/" target="_blank">Mama'hood</a></td>
+  <td>303-443-3832</td>
+  <td>2525 Arapahoe Ave., Ste. H-7</td>
+  <td>Boulder</td>
+</tr>
+<tr class="all serviceFive serviceNine serviceTen serviceSix serviceThree">
+  <td>Boulder La Leche League</td>
+  <td>720-514-9607</td>
+  <td>lllofboulder@gmail.com</td>
+  <td>Boulder</td>
+</tr>
+<tr class="all serviceThree">
+  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/chp.aspx" target="_blank">Child Health Promotion Program</a></td>
+<td>303-413-7500</td>
+<td>3482 Broadway</td>
+<td>Boulder</td>
+</tr>
+<tr class="all serviceSeven">
+  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/csnprogram.aspx" target="_blank">Children with Special Needs</a></td>
+  <td>303-413-7500</td>
+  <td>3482 Broadway</td>
+  <td>Boulder</td>
+</tr>
+<tr class="all serviceFive serviceNine serviceTen serviceSix serviceThree">
+<td><a href="http://www.longmontlll.org/Longmont_LLL/Home.html" target="_blank">Longmont La Leche League</a></td>
+  <td>303-772-9312</td>
+  <td>No Address</td>
+  <td>Longmont</td>
+</tr>
+<tr class="all serviceSeven">
+  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/nfpindex.aspx" target="_blank">Nurse-Family Partnership</a></td>
+  <td>303-413-7500</td>
+  <td>3482 Broadway</td>
+  <td>Boulder</td>
+</tr>
+</tbody>
+</table></div>
+							
 
 						</td>
 					</tr>
@@ -143,5 +286,14 @@
 
 		}
 	}
+	//here is the custom JS we would like to add
+	$("#choice").change(function(){
+	  $("#table tbody tr").hide();
+	  $("#table tbody tr."+$(this).val()).show('fast');
+	});
+
+	//this JS calls the tablesorter plugin that we already use on our site
+	$("#table").tablesorter( {sortList: [[0,0]]} );
+
 </script>
 </html>
