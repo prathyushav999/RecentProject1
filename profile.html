@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+<title>SREA Real Estates | Contact</title>
+
+<!-- Loading third party fonts -->
+<link
+	href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400|"
+	rel="stylesheet" type="text/css">
+<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Loading main css file -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="sideMenu.css">
+</head>
+<body>
+
+	<div id="site-content" style="background-color: #000;">
+		<div class="site-header">
+			<div>
+				<a href="" id="branding" style="height:58px;width: 1300px;"> <img style="padding-left:20px;"
+					src="images/logo.png" alt="" class="logo">
+					<div class="logo-text">
+						<h1 class="site-title">SREA Real Estates</h1>
+						<small class="site-description"><b>Where dreams come
+								true.</b></small>
+
+					</div>
+					<div style="padding-top: 56px;">
+						<a href="#" class="btn btn-info"> <span
+							class="fa fa-power-off"></span> Log out
+						</a>
+
+					</div>
+				</a>
+
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td>
+							<nav>
+								<ul class="mcd-menu" style="width:210px;height: 900px;">
+			
+									<li><a onclick='treeChartWindow("chart")'> <i
+											class="fa fa-street-view"></i> <strong>Orgization
+												chart</strong> <small>Tree view</small>
+									</a></li>
+									<li><a onclick='treeChartWindow("payment")'> <i
+											class="fa fa-money"></i> <strong>Payment</strong> <small>Percentage
+												division</small>
+									</a></li>
+									<li><a onclick='treeChartWindow("profile")' class="active">
+											<i class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
+												Details</small>
+									</a></li>
+								</ul>
+							</nav>
+						</td>
+						<td><div
+								style="width: 1350px; height: 900px; background-image: url('dummy/treechartbg.jpg');">
+								Hello Profile screen</div></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var queryString = new Array();
+	var customerId = "";
+	window.onload = function() {
+		if (queryString.length == 0) {
+			if (window.location.search.split('?').length > 1) {
+				var params = window.location.search.split('?')[1].split('&');
+				for (var i = 0; i < params.length; i++) {
+					var key = params[i].split('=')[0];
+					var value = decodeURIComponent(params[i].split('=')[1]);
+					queryString[key] = value;
+				}
+			}
+		}
+		if (queryString["customerId"] != null) {
+			customerId = queryString["customerId"];
+			/* const url = "http://localhost/crud/template.html?customerId="
+				+ customerId;
+			window.location.href = url;
+			return; */
+		}
+	};
+
+	function treeChartWindow(screen) {
+		if (queryString.length == 0) {
+			if (window.location.search.split('?').length > 1) {
+				var params = window.location.search.split('?')[1].split('&');
+				for (var i = 0; i < params.length; i++) {
+					var key = params[i].split('=')[0];
+					var value = decodeURIComponent(params[i].split('=')[1]);
+					queryString[key] = value;
+				}
+			}
+		}
+		if (queryString["customerId"] != null) {
+			customerId = queryString["customerId"];
+			const url = "";
+			if (screen == "chart") {
+				const url = "http://localhost/crud/template.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
+			if (screen == "payment") {
+				const url = "http://localhost/crud/payment.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
+			if (screen == "profile") {
+				const url = "http://localhost/crud/profile.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
+
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,725 @@
+<style>/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
+---------------------------------------
+*/
+
+* {
+  margin: 0px auto;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cotn_principal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfd8dc+0,607d8b+100,b0bec5+100 */
+/* background: #cfd8dc; */ /* Old browsers */
+/* background: -moz-linear-gradient(-45deg,  #cfd8dc 0%, #607d8b 100%, #b0bec5 100%); */ /* FF3.6-15 */
+/* background: -webkit-linear-gradient(-45deg,  #cfd8dc 0%,#607d8b 100%,#b0bec5 100%); */ /* Chrome10-25,Safari5.1-6 */
+/* background: linear-gradient(135deg,  #cfd8dc 0%,#607d8b 100%,#b0bec5 100%); */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfd8dc', endColorstr='#b0bec5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+
+.cont_centrar {
+  position: relative;
+  float: left;
+   width: 100%;
+}
+
+.cont_login {
+  position: relative;
+  width: 640px;
+left: 50%;
+margin-left: -320px;
+  
+}
+
+.cont_back_info {  
+position: relative;
+  float: left;
+  width: 640px;
+  height: 280px;
+overflow: hidden;
+  background-color: #fff;
+  margin-top: 100px;
+box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+.cont_forms {
+  position: absolute;
+  overflow: hidden;
+  top:100px;
+left: 0px;
+  width: 320px;
+  height: 280px;
+  background-color: #eee;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.cont_forms_active_login {
+box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
+  height: 420px;  
+top:20px;
+left: 0px;
+  -webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+
+}
+
+.cont_forms_active_sign_up {
+box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
+  height:680px;
+top:20px;
+left:320px;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.cont_img_back_grey {
+  position: absolute;
+  width: 950px;
+top:-80px;
+  left: -116px;
+}
+
+.cont_img_back_grey > img {
+  width: 100%;
+  -webkit-filter: grayscale(100%);     filter: grayscale(100%); 
+ opacity: 0.2; 
+animation-name: animar_fondo;
+  animation-duration: 20s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+
+}
+
+.cont_img_back_ {
+  position: absolute;
+  width: 950px;
+top:-80px;
+  left: -116px;
+}
+
+.cont_img_back_ > img {
+  width: 100%;
+ opacity: 0.3;
+animation-name: animar_fondo;
+animation-duration: 20s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+
+.cont_forms_active_login > .cont_img_back_ {
+top:0px;  
+  -webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.cont_forms_active_sign_up > .cont_img_back_ {
+top:0px;  
+left: -435px;
+  -webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+ 
+
+.cont_info_log_sign_up {
+position: absolute;
+  width: 640px;
+  height: 280px;
+  top: 100px;
+z-index: 1;
+} 
+
+.col_md_login {
+  position: relative;
+  float: left;
+  width: 50%;
+}
+
+.col_md_login > h2 {
+  font-weight: 400;
+margin-top: 70px;
+    color: #757575;
+}
+
+.col_md_login > p {
+ font-weight: 400;
+margin-top: 15px;
+width: 80%;
+    color: #37474F;
+}
+
+.btn_login { 
+background-color: #26C6DA;
+  border: none;
+  padding: 10px;
+width: 200px;
+border-radius:3px;
+box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+  color: #fff;
+margin-top: 10px;
+cursor: pointer;
+}
+
+.col_md_sign_up {
+  position: relative;
+  float: left;
+  width: 50%;  
+}
+
+.cont_ba_opcitiy > h2 {
+  font-weight: 400;
+  color: #fff;
+}
+
+.cont_ba_opcitiy > p {
+ font-weight: 400;
+margin-top: 15px;
+ color: #fff;
+}
+/* ----------------------------------
+background text    
+------------------------------------
+ */
+.cont_ba_opcitiy {
+  position: relative;
+  background-color: rgba(120, 144, 156, 0.55);
+  width: 80%;
+  border-radius:3px ;
+margin-top: 60px;
+padding: 15px 0px;
+}
+
+.btn_sign_up { 
+background-color: #ef5350;
+  border: none;
+  padding: 10px;
+width: 200px;
+border-radius:3px;
+box-shadow: 1px 5px 20px -5px rgba(0,0,0,0.4);
+  color: #fff;
+margin-top: 10px;
+cursor: pointer;
+}
+.cont_forms_active_sign_up {
+z-index: 2;  
+}
+
+
+@-webkit-keyframes animar_fondo {
+  from { -webkit-transform: scale(1) translate(0px);
+-moz-transform: scale(1) translate(0px);
+-ms-transform: scale(1) translate(0px);
+-o-transform: scale(1) translate(0px);
+transform: scale(1) translate(0px); }
+  to { -webkit-transform: scale(1.5) translate(50px);
+-moz-transform: scale(1.5) translate(50px);
+-ms-transform: scale(1.5) translate(50px);
+-o-transform: scale(1.5) translate(50px);
+transform: scale(1.5) translate(50px); }
+}
+@-o-keyframes identifier {
+  from { -webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
+transform: scale(1); }
+  to { -webkit-transform: scale(1.5);
+-moz-transform: scale(1.5);
+-ms-transform: scale(1.5);
+-o-transform: scale(1.5);
+transform: scale(1.5); }
+
+}
+@-moz-keyframes identifier {
+  from { -webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
+transform: scale(1); }
+  to { -webkit-transform: scale(1.5);
+-moz-transform: scale(1.5);
+-ms-transform: scale(1.5);
+-o-transform: scale(1.5);
+transform: scale(1.5); }
+
+}
+@keyframes identifier {
+  from { -webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
+transform: scale(1); }
+  to { -webkit-transform: scale(1.5);
+-moz-transform: scale(1.5);
+-ms-transform: scale(1.5);
+-o-transform: scale(1.5);
+transform: scale(1.5); }
+}
+.cont_form_login {
+  position: absolute;
+  opacity: 0;
+display: none;
+  width: 320px;
+  -webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+.cont_forms_active_login {
+z-index: 2;  
+}
+.cont_forms_active_login  >.cont_form_login {
+}
+
+.cont_form_sign_up {
+  position: absolute;
+  width: 320px;
+float: left;
+  opacity: 0;
+display: none;
+  -webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+  
+.cont_form_sign_up > input {
+text-align: left;
+  padding: 15px 5px;
+margin-left: 10px;
+margin-top: 20px;
+  width: 260px;
+border: none;
+    color: #757575;
+}
+.cont_form_add {
+text-align: left;
+  padding: 15px 5px;
+margin-left: 10px;
+margin-top: 20px;
+  width: 260px;
+border: none;
+    color: #757575;
+}
+
+.cont_form_sign_up > h2 {
+margin-top: 50px; 
+font-weight: 400;
+  color: #757575;
+}
+
+
+.cont_form_login > input {
+  padding: 15px 5px;
+margin-left: 10px;
+margin-top: 20px;
+  width: 260px;
+border: none;
+text-align: left;
+  color: #757575;
+}
+
+.cont_form_login > h2 {
+margin-top: 110px; 
+font-weight: 400;
+  color: #757575;
+}
+.cont_form_login > a,.cont_form_sign_up > a  {
+  color: #757575;
+    position: relative;
+    float: left;
+    margin: 10px;
+margin-left: 30px;
+}
+
+</style>
+<head> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link rel="stylesheet" href="css/style.css"></head>
+<body style="background-image: url('dummy/building15.jpg'); background-size:100% 100%;">
+<div>
+
+<div class="cotn_principal">
+<div class="cont_centrar">
+
+  <div class="cont_login">
+<div class="cont_info_log_sign_up">
+      <div class="col_md_login">
+<div class="cont_ba_opcitiy">
+        
+        <h2>LOGIN</h2>  
+  <p>Already Existing User .</p> 
+  <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+  </div>
+  </div>
+<div class="col_md_sign_up">
+<div class="cont_ba_opcitiy">
+  <h2>SIGN UP</h2>
+
+  
+  <p>Newly Register User.</p>
+
+  <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+</div>
+  </div>
+       </div>
+
+    
+    <div class="cont_back_info">
+       <div class="cont_img_back_grey">
+       <img src="dummy/building21.jpg" alt="" />
+       </div>
+       
+    </div>
+<div class="cont_forms" >
+    <div class="cont_img_back_">
+       <img src="dummy/building21.jpg" alt="" />
+       </div>
+ <div class="cont_form_login">
+<a href="#" onclick="window.location.reload();" ><i class="material-icons">close</i></a>
+   <h2>LOGIN</h2>
+ <input type="text" id="customerId" placeholder="CustomerId" />
+<input type="password" id="password" placeholder="Password" />
+<button class="btn_login" onclick="loginValidation()">LOGIN</button>
+  </div>
+  
+   <div class="cont_form_sign_up">
+<a href="#" onclick="window.location.reload();"><i class="material-icons">close</i></a>
+     <h2>SIGN UP</h2>
+<input type="text" class="cont_form_add" placeholder="Email" id="email" name="email" onchange="emailValidation(this.value)" />
+<p id="emailerr" style="color:red;font-size:15px;font-style:italic"></p>
+<input type="text" class="cont_form_add" placeholder="Username" id="username" name="username" onchange="usernameValidation(this.value)" />
+<p id="usernameerr" style="color:red;font-size:15px;font-style:italic"></p>
+<input  type="text" class="cont_form_add" placeholder="Sponser Id"  id="sponserid" name="sponserid" onchange="showCustomer(this.value)"/>
+<p id="sponseriderr" style="color:red;font-size:15px;font-style:italic"></p>
+<input  type="text" class="cont_form_add" placeholder="Sponser Name"  id="sponsername" name="sponsername"/>
+<input type="text"  class="cont_form_add" placeholder="MobileNumber" id="mobileno" name="mobileno" onchange="mobileNoValidation(this.value)" />
+<p id="mobilenoerr" style="color:red;font-size:15px;font-style:italic"></p>
+<input type="password" class="cont_form_add" placeholder="Password" id="password" name="password" onchange="passwordValidation()" />
+<input type="password" class="cont_form_add" placeholder="Confirm Password"  id="repassword" onchange="passwordValidation()" />
+<p id="passworderr" style="color:red;font-size:15px;font-style:italic"></p>
+<p id="errmsg" style="color:red;font-size:15px;font-style:italic"></p>
+<button id="signup"  value="Save" class="btn_sign_up" onclick="validate()">SIGN UP</button>
+<p id="errmsg" style="color:red;font-size:15px;font-style:italic"></p>
+
+
+  </div>
+
+    </div>
+    
+  </div>
+ </div>
+</div>
+</div>
+</body>
+<script>/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
+---------------------------------------
+*/
+function validate()
+{
+var email=document.getElementById("email").value;
+var username=document.getElementById("username").value;
+var sponserid=document.getElementById("sponserid").value;
+var mobileno=document.getElementById("mobileno").value;
+var password=document.getElementById("password").value;
+var repassword=document.getElementById("repassword").value;
+var flag=0;
+	if(!emailValidation(email))
+		flag=1;
+	if(!usernameValidation(username))
+		flag=1;
+	if(!sponserIdValidation(sponserid))
+		flag=1
+	if(!mobileNoValidation(mobileno))
+		flag=1
+	if(!passwordValidation())
+		flag=1
+	
+	if(flag==1)
+		return;
+	else
+		{
+		saveData();
+	    
+		}
+
+
+}
+function emailValidation(email)
+{
+	if(email!=""){
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(!email.match(mailformat)){
+		document.getElementById("emailerr").innerHTML="Invalid email"
+		return false;
+	}
+	else
+	{
+		document.getElementById("emailerr").innerHTML=""
+		return true;
+	}
+
+	}
+	return true;
+}
+
+function usernameValidation(username)
+{
+	if(username=="")
+	{
+	document.getElementById("usernameerr").innerHTML="Username should be given";
+	return false;
+	}
+	else
+	{
+		document.getElementById("usernameerr").innerHTML="";
+		return true;
+	}
+
+}
+
+function sponserIdValidation(sponserid)
+{
+	if(sponserid=="")
+	{
+	document.getElementById("sponseriderr").innerHTML="SponserId should be given";
+	return false;
+	}
+	else
+	{
+		document.getElementById("sponseriderr").innerHTML="";
+		return true;
+	}
+
+}
+
+function mobileNoValidation(mobileno)
+{
+	if(mobileno=="")
+	{
+	document.getElementById("mobilenoerr").innerHTML="Mobile Number should be given";
+	return false;
+	}
+	else
+	{
+		if(mobileno.length!=10)
+			{
+			document.getElementById("mobilenoerr").innerHTML="Invalid Mobile Number";
+			return false;
+			}
+		else{
+			document.getElementById("mobilenoerr").innerHTML="";
+			return true;
+			}
+	}
+
+}
+
+function passwordValidation()
+{
+	password=document.getElementById("password").value;
+	repassword=document.getElementById("repassword").value;
+	if(password=="" || repassword=="")
+	{
+	document.getElementById("passworderr").innerHTML="Password should not be empty";
+	return false;
+	}
+	else
+	{
+				
+		if(password!=repassword)
+		{
+		document.getElementById("passworderr").innerHTML="Password and retype password must be same";
+		return false;
+		}
+		else
+		{
+			document.getElementById("passworderr").innerHTML="";
+			return true;
+		}
+
+	}
+}
+	
+function saveData()
+{
+	var email=document.getElementById("email").value;
+	var username=document.getElementById("username").value;
+	var sponserid=document.getElementById("sponserid").value;
+	var sponsername=document.getElementById("sponsername").value;
+	var mobileno=document.getElementById("mobileno").value;
+	var password=document.getElementById("password").value;
+	  
+	  const xhttp = new XMLHttpRequest();
+	  xhttp.onload = function() {
+		 var customerid=this.responseText;
+		 sendMessage(customerid);
+		  const url = "http://localhost/crud/success.html?customerid="+customerid+"&customername="+username;
+	        window.location.href = url;
+		 return ;
+	  }
+	  xhttp.open("POST", "savedata.php");
+	  xhttp.setRequestHeader("Content-Type", "application/json");
+
+	  var data = {email:email,username:username,sponserid:sponserid,sponsername:sponsername,mobileno:mobileno,password:password};
+	  xhttp.send(JSON.stringify(data));
+	
+	}
+
+function loginValidation()
+{
+	var customerId=document.getElementById("customerId").value;
+	var password=document.getElementById("password").value;
+	  
+	  const xhttp = new XMLHttpRequest();
+	  xhttp.onload = function() {
+		 var dbPassword=this.responseText;
+		 
+		 if (dbPassword == password) {
+			 const url = "http://localhost/crud/template.html?customerId="+customerId;
+		        window.location.href = url;
+			 return ;
+			} else {
+				alert("Password does not match"); 
+			}
+	  }
+	  xhttp.open("GET", "validation.php?q="+customerId);
+	  xhttp.send();
+	
+	}
+
+function showCustomer(str) {
+
+	  if (str == "") {
+	    document.getElementById("sponsername").innerHTML = "";
+	    return;
+	  }
+	  document.getElementById("sponseriderr").innerHTML="";
+
+	  const xhttp = new XMLHttpRequest();
+	  xhttp.onload = function() {
+		 var res=this.responseText;
+		 if(res===""){
+	    document.getElementById("sponsername").value = "";
+	    document.getElementById("errmsg").innerHTML = "INVALID SPONSERID";
+	    document.getElementById("signup").disabled = true;
+
+		 }
+		 else
+		{
+			    document.getElementById("sponsername").value = res;
+			    document.getElementById("errmsg").innerHTML = "";
+			    document.getElementById("signup").disabled = false;
+
+		}
+	  }
+	  xhttp.open("GET", "getsponser.php?q="+str);
+	  xhttp.send();
+	}
+	
+function sendMessage(customerid) {
+	mobileno=document.getElementById("mobileno").value;
+	username=document.getElementById("username").value;
+
+	  if (mobileno == "") {
+	    document.getElementById("errmsg").innerHTML = "MOBILE NO SHOULD BE GIVEN";
+	    document.getElementById("signup").disabled = false;
+	    return;
+	  }
+	  if(mobileno.length!=10)
+	  {
+		  document.getElementById("errmsg").innerHTML = "MOBILE NO is INVALID";
+		  document.getElementById("signup").disabled = false;
+		  return;
+	  }
+	  if (username == "") {
+		    document.getElementById("errmsg").innerHTML = "USERNAME SHOULD BE GIVEN";
+		    document.getElementById("signup").disabled = false;
+		    return;
+	}
+	  
+	  const xhttp = new XMLHttpRequest();
+	  var res;
+	  xhttp.onload = function() {
+		 res=this.responseText;
+		 document.getElementById("passworderr").innerHTML=res;
+		 return ;
+	  }
+	  xhttp.open("POST", "sendmessage.php");
+	  xhttp.setRequestHeader("Content-Type", "application/json");
+	  var data = {mobileno:mobileno,username:username,customerid:customerid};
+	  xhttp.send(JSON.stringify(data));	  
+		
+
+	}
+	
+function cambiar_login() {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
+document.querySelector('.cont_form_login').style.display = "block";
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+
+setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);  
+  
+setTimeout(function(){    
+document.querySelector('.cont_form_sign_up').style.display = "none";
+},200);  
+  }
+
+function cambiar_sign_up(at) {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+  document.querySelector('.cont_form_sign_up').style.display = "block";
+document.querySelector('.cont_form_login').style.opacity = "0";
+  
+setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+},100);  
+
+setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+},400);  
+
+
+}    
+
+
+
+function ocultar_login_sign_up() {
+
+document.querySelector('.cont_forms').className = "cont_forms";  
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+document.querySelector('.cont_form_login').style.opacity = "0"; 
+
+setTimeout(function(){
+document.querySelector('.cont_form_sign_up').style.display = "none";
+document.querySelector('.cont_form_login').style.display = "none";
+},500);  
+  
+  }
+
+
+
+</script>
