@@ -52,7 +52,7 @@
 					<tr>
 						<td>
 							<nav>
-								<ul class="mcd-menu" style="width:210px;height: 900px;">
+								<ul class="mcd-menu" style="height:700px;">
 			
 									<li><a onclick='treeChartWindow("chart")'> <i
 											class="fa fa-street-view"></i> <strong>Orgization
@@ -69,8 +69,7 @@
 								</ul>
 							</nav>
 						</td>
-						<td><div
-								style="width: 1350px; height: 900px; background-image: url('dummy/treechartbg.jpg');">
+						<td style="width:100%;"><div>
 								Hello Profile screen</div></td>
 					</tr>
 				</table>
@@ -96,7 +95,7 @@
 		}
 		if (queryString["customerId"] != null) {
 			customerId = queryString["customerId"];
-			/* const url = "http://localhost/crud/template.html?customerId="
+			/* const url = "http://localhost/SREA/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
 			return; */
@@ -118,19 +117,19 @@
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/crud/template.html?customerId="
+				const url = "http://localhost/SREA/template.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/crud/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/crud/profile.html?customerId="
+				const url = "http://localhost/SREA/profile.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;

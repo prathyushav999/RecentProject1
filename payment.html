@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
 <style>
 /*This CSS is only for demo purposes */
-table, td, th {border: 1px solid; width:751px}
-th {background-color: #eaeaea;}
-th, td {padding: 12px;}
-select {margin: 1em 0;}
+a {
+	padding-left: 10px;
+}
 
+.padding {
+	height: 30px;
+	border: 1px solid;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.centertd {
+	height: 30px;
+	border: 1px solid;
+	text-align: center;
+}
 </style>
-<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,maximum-scale=1">
-
+<meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>SREA Real Estates | Contact</title>
 
 <!-- Loading third party fonts -->
@@ -31,6 +43,9 @@ select {margin: 1em 0;}
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 </head>
 <body>
@@ -38,8 +53,9 @@ select {margin: 1em 0;}
 	<div id="site-content" style="background-color: #000;">
 		<div class="site-header">
 			<div>
-				<a href="" id="branding" style="height:58px;width: 1300px;"> <img style="padding-left:20px;"
-					src="images/logo.png" alt="" class="logo">
+				<a href="" id="branding" style="height: 58px; width: 1300px;"> <img
+					style="padding-left: 20px;" src="images/logo.png" alt=""
+					class="logo">
 					<div class="logo-text">
 						<h1 class="site-title">SREA Real Estates</h1>
 						<small class="site-description"><b>Where dreams come
@@ -55,175 +71,239 @@ select {margin: 1em 0;}
 				</a>
 
 			</div>
-			<div>
-				<table>
-					<tr>
-						<td>
-							<div>
-								<nav>
-									<ul class="mcd-menu" style="width:210px;height: 900px;">
-										<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
-										<li><a onclick='treeChartWindow("chart")'> <i
-												class="fa fa-street-view"></i> <strong>Orgization
-													chart</strong> <small>Tree view</small>
-										</a></li>
-										<li><a onclick='treeChartWindow("payment")'
-											class="active"> <i class="fa fa-money"></i> <strong>Payment</strong>
-												<small>Percentage division</small>
-										</a></li>
-										<li><a onclick='treeChartWindow("profile")'> <i
-												class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
-													Details</small>
-										</a></li>
-									</ul>
-								</nav>
+			<table>
+				<tr style="background-color: #000;">
+					<td><nav>
+							<ul class="mcd-menu"
+								style="position: relative; margin-bottom: 200%;">
+								<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
+								<li><a onclick='treeChartWindow("chart")'> <i
+										class="fa fa-street-view"></i> <strong>Orgization
+											chart</strong> <small>Tree view</small>
+								</a></li>
+								<li><a onclick='treeChartWindow("payment")' class="active">
+										<i class="fa fa-money"></i> <strong>Payment</strong> <small>Percentage
+											division</small>
+								</a></li>
+								<li><a onclick='treeChartWindow("profile")'> <i
+										class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
+											Details</small>
+								</a></li>
+							</ul>
+						</nav></td>
+					<td style="width: 100%; background-color: #eaeaea;">
+						<div style="padding-top: 50px; padding-left: 20px; display: none;"
+							id="calculate">
+							<table>
+								<tr>
+									<td><label>Customer ID</label><br /> <input
+										id="customerId" style="height: 35px; width: 300px;"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td><label>PV's</label><br /> <input id="pvs"
+										style="height: 35px; width: 300px;"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td><label>Amount Per PV</label><br /> <input id="apv"
+										style="height: 35px; width: 300px;"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td><br />
+									<button style="height: 40px;" class="btn btn-info"
+											onclick='show();'>Calculate</button></td>
+								</tr>
+
+							</table>
+							<br />
+							<br />
+							<table id="table1" style="display: none;">
+								<tr>
+									<td><br />
+									<b>Customer Name
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+									<td><br />Hello123</td>
+								</tr>
+
+								<tr>
+									<td style="padding-top: 5px;"><b>Earned
+											Pv's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b></td>
+									<td>120</td>
+								</tr>
+
+								<tr>
+									<td style="padding-top: 5px;"><b>Earned
+											Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b></td>
+									<td>500</td>
+								</tr>
+							</table>
+							<br />
+							<br />
+							<div id="table2" style="display: none;">
+								<table class="padding" style="width: 100%;">
+
+									<thead>
+										<tr>
+											<th class="centertd">Sponser Name</th>
+											<th class="centertd">Sponser Id</th>
+											<th class="centertd">Level</th>
+											<th class="centertd">Commision PV's</th>
+											<th class="centertd">Commision Amount</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="padding">Salud Family Health Center</td>
+											<td class="centertd">970-484-0999</td>
+											<td class="padding">220 E. Rogers Rd.</td>
+											<td class="padding">Longmont</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Clinica Family Health Center</td>
+											<td class="centertd">303-650-4460</td>
+											<td class="padding">1345 Plaza Court N.</td>
+											<td class="padding">Lafayette</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">People's Medical Clinic</td>
+											<td class="centertd">303-650-4460</td>
+											<td class="padding">2525 13th St.</td>
+											<td class="padding">Boulder</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Boulder Community Health</td>
+											<td class="centertd">720-854-7000</td>
+											<td class="padding">4747 Arapahoe Ave.</td>
+											<td class="padding">Boulder</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Avista Hospital</td>
+											<td class="centertd">303-673-1000</td>
+											<td class="padding">100 Health Park Dr.</td>
+											<td class="padding">Louisville</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Good Samaritan Medical Center</td>
+											<td class="centertd">303-689-4000</td>
+											<td class="padding">200 Exempla Cr.</td>
+											<td class="padding">Lafayette</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Longmont United Hospital</td>
+											<td class="centertd">303-651-5111</td>
+											<td class="padding">1950 Mountain View Ave.</td>
+											<td class="padding">Longmont</td>
+											<td class="padding">Longmont</td>
+										</tr>
+										<tr>
+											<td class="padding">Birth Center of Boulder</td>
+											<td class="centertd">303-443-3993</td>
+											<td class="padding">2800 Folsom St.</td>
+											<td class="padding">Boulder</td>
+											<td class="padding">Longmont</td>
+										</tr>
+
+									</tbody>
+								</table>
 							</div>
-						</td>
-						<td>
-							<div><select id="choice">
-  <option value="all">All</option>
-  <option value="serviceOne">Board-Certified Lactation Consultants</option>
-  <option value="serviceTwo">Breastfeeding Classes</option>
-  <option value="serviceThree">Breastfeeding-Friendly Environments</option>
+							<br />
+							<br />
+							<br />
+							<br />
+							<div style="margin-bottom: 5%; display: none;" id="submit">
+								<center>
+									<button class="btn btn-info" onclick="hide();">submit</button>
+								</center>
+							</div>
+						</div>
 
-  <option value="serviceFour">Certified Lactation Counselors</option>
-  <option value="serviceFive">Counselor, Consultant, or Leader</option>
-  <option value="serviceSix">Extended Lactation</option>
+						<div style="padding-top: 50px; padding-left: 20px; display: none;"
+							id="total">
 
-  <option value="serviceSeven">Home Visits</option>
 
-  <option value="serviceEight">Milk Bank Drop-Off</option>
-  <option value="serviceNine">Peer Support</option>
-  <option value="serviceTen">Phone Support</option>
+							<div id="table12" style="position: relative; text-align: center;">
+								<label style="color: purple; font-size: 30px;"><center>
+										<b> Earned Summary</b>
+									</center></label>
+								<table style="width: 100%;">
 
-  <option value="serviceEleven">Postpartum Breastfeeding Care</option>
-  <option value="serviceTwelve">Prenatal Education</option>
+									<tr>
+										<td style="text-align: center;"><i
+											style="color: #DAA520;" class='fas fa-money-bill-alt fa-4x'></i></td>
+										<td style="text-align: center;"><i
+											style="color: #DAA520;" class='fas fa-donate fa-4x'></i></td>
 
-</select>
+									</tr>
+									<tr>
+										<td style="font-size: 25px; width: 650px; text-align: center;">Earned
+											PV's</td>
+										<td style="font-size: 25px; text-align: center;">Earned
+											Amount</td>
 
-<table id="table">
-  <thead>
-    <tr>
-      <th>Provider</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>City</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr class="all serviceEleven">
-        <td><a href="http://www.saludclinic.org/" target="_blank">Salud Family Health Center</a></td>
-      <td>970-484-0999</td>
-      <td>220 E. Rogers Rd.</td>
-        <td>Longmont</td>
-    </tr>
-        </tr>
-      <tr class="all serviceEleven">
-        <td><a href="https://clinica.org/" target="_blank">Clinica Family Health Center</a></td>
-      <td>303-650-4460</td>
-      <td>1345 Plaza Court N.</td>
-        <td>Lafayette</td>
-    </tr>
-      <tr class="all serviceEleven">
-        <td><a href="https://clinica.org/" target="_blank">People's Medical Clinic</a></td>
-      <td>303-650-4460</td>
-      <td>2525 13th St.</td>
-        <td>Boulder</td>
-    </tr>
-      <tr class="all serviceEleven serviceTwo serviceTen serviceOne serviceFour serviceEight serviceFive serviceNine serviceTen">
-        <td><a href="http://www.bch.org/" target="_blank">Boulder Community Health</a></td>
-      <td>720-854-7000</td>
-      <td>4747 Arapahoe Ave.</td>
-        <td>Boulder</td>
-    </tr>
-   <tr class="all serviceTwelve serviceTwo serviceEleven serviceOne serviceFour serviceEight serviceFive serviceNine serviceTen serviceSix">
-     <td><a href="http://www.avistahospital.org/avh/home/" target="_blank">Avista Hospital</a></td>
-     <td>303-673-1000</td>
-     <td>100 Health Park Dr.</td>
-     <td>Louisville</td>
-</tr>
-<tr class="all serviceTwelve serviceEleven serviceOne serviceFour serviceEight serviceFive serviceTen">
-  <td><a href="http://www.goodsamaritancolorado.org/" target="_blank">Good Samaritan Medical Center</a></td>
-  <td>303-689-4000</td>
-  <td>200 Exempla Cr.</td>
-  <td>Lafayette</td>
-</tr>
-<tr class="all serviceTwelve serviceTwo serviceEleven serviceFour serviceFive serviceNine serviceTen">
-  <td><a href="http://www.luhcares.org/" target="_blank">Longmont United Hospital</a></td>
-  <td>303-651-5111</td>
-  <td>1950 Mountain View Ave.</td>
-  <td>Longmont</td>
-</tr>
-<tr class="all serviceTwo serviceEleven serviceOne serviceFour serviceFive serviceNine">
-  <td><a href="http://www.birthcenterofboulder.com/" target="blank">Birth Center of Boulder</a></td>
-  <td>303-443-3993</td>
-  <td>2800 Folsom St.</td>
-  <td>Boulder</td>
-</tr>
-<tr class="all serviceTwelve serviceOne serviceFour serviceFive serviceNine serviceTen serviceSix">
-  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/wicindex.aspx" target="_blank">WIC Program</a></td>
-  <td>303-413-7500</td>
-  <td>3482 Broadway</td>
-  <td>Boulder</td>
-</tr>
-<tr class="all serviceOne serviceSeven">
-  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/genesisservices.aspx" target="_blank">GENESIS Program</a></td>
-  <td>303-413-7500</td>
-  <td>3482 Broadway</td>
-  <td>Boulder</td>
-  <tr>
- <tr class="all serviceTwelve serviceTwo serviceFour serviceFive serviceNine serviceThree">
-   <td><a href="http://family-garden.org/" target="_blank">Family Garden Parenting Resource Center</a></td>
-   <td>303-678-1144</td>
-   <td>600 S. Airport Rd., Ste. B</td>
-   <td>Longmont</td>
-</tr>
-<tr class="all serviceTwelve serviceTwo serviceOne serviceFive serviceNine serviceSix serviceThree">
-  <td><a href="http://www.themamahood.com/" target="_blank">Mama'hood</a></td>
-  <td>303-443-3832</td>
-  <td>2525 Arapahoe Ave., Ste. H-7</td>
-  <td>Boulder</td>
-</tr>
-<tr class="all serviceFive serviceNine serviceTen serviceSix serviceThree">
-  <td>Boulder La Leche League</td>
-  <td>720-514-9607</td>
-  <td>lllofboulder@gmail.com</td>
-  <td>Boulder</td>
-</tr>
-<tr class="all serviceThree">
-  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/chp.aspx" target="_blank">Child Health Promotion Program</a></td>
-<td>303-413-7500</td>
-<td>3482 Broadway</td>
-<td>Boulder</td>
-</tr>
-<tr class="all serviceSeven">
-  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/csnprogram.aspx" target="_blank">Children with Special Needs</a></td>
-  <td>303-413-7500</td>
-  <td>3482 Broadway</td>
-  <td>Boulder</td>
-</tr>
-<tr class="all serviceFive serviceNine serviceTen serviceSix serviceThree">
-<td><a href="http://www.longmontlll.org/Longmont_LLL/Home.html" target="_blank">Longmont La Leche League</a></td>
-  <td>303-772-9312</td>
-  <td>No Address</td>
-  <td>Longmont</td>
-</tr>
-<tr class="all serviceSeven">
-  <td><a href="http://www.bouldercounty.org/family/pregnancy/pages/nfpindex.aspx" target="_blank">Nurse-Family Partnership</a></td>
-  <td>303-413-7500</td>
-  <td>3482 Broadway</td>
-  <td>Boulder</td>
-</tr>
-</tbody>
-</table></div>
-							
+									</tr>
 
-						</td>
-					</tr>
-				</table>
+									<tr>
+										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
+										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
 
-			</div>
+									</tr>
+								</table>
+								<label
+									style="margin-top: 100px; color: purple; font-size: 30px;"><center>
+										<b> Paid Summary</b>
+									</center></label>
+								<table style="width: 100%;">
+									<tr>
+										<td style="text-align: center;"><i
+											style="color: #18A558;" class='fas fa-money-bill-alt fa-4x'></i></td>
+										<td style="text-align: center;"><i
+											style="color: #18A558;" class='fas fa-donate fa-4x'></i></td>
 
+									</tr>
+									<tr>
+										<td style="font-size: 25px; width: 650px; text-align: center;">Paid
+											PV's</td>
+										<td style="font-size: 25px; text-align: center;">Paid
+											Amount</td>
+
+									</tr>
+
+									<tr>
+										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
+										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
+
+									</tr>
+								</table>
+								<label
+									style="color: purple; font-size: 30px; margin-top: 100px;"><center>
+										<b> Balance Summary</b>
+									</center></label>
+								<table style="width: 100%;">
+									<tr>
+										<td style="text-align: center;"><i style="color: red;"
+											class='fas fa-money-bill-alt fa-4x'></i></td>
+										<td style="text-align: center;"><i style="color: red;"
+											class='fas fa-donate fa-4x'></i></td>
+
+									</tr>
+									<tr>
+										<td style="font-size: 25px; width: 650px; text-align: center;">Balance
+											PV's</td>
+										<td style="font-size: 25px; text-align: center;">Balance
+											Amount</td>
+
+									</tr>
+
+									<tr>
+										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
+										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
+
+									</tr>
+								</table>
+							</div>
+					</td>
+
+				</tr>
+			</table>
 		</div>
 	</div>
 
@@ -244,6 +324,12 @@ select {margin: 1em 0;}
 		}
 		if (queryString["customerId"] != null) {
 			customerId = queryString["customerId"];
+			if (customerId == 'SREA-10') {
+				document.getElementById("calculate").style.display = "block";
+			} else {
+				document.getElementById("total").style.display = "block";
+			}
+
 			/* const url = "http://localhost/crud/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
@@ -266,19 +352,19 @@ select {margin: 1em 0;}
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/crud/template.html?customerId="
+				const url = "http://localhost/SREA/template.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/crud/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/crud/profile.html?customerId="
+				const url = "http://localhost/SREA/profile.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
@@ -287,13 +373,23 @@ select {margin: 1em 0;}
 		}
 	}
 	//here is the custom JS we would like to add
-	$("#choice").change(function(){
-	  $("#table tbody tr").hide();
-	  $("#table tbody tr."+$(this).val()).show('fast');
-	});
+	//$("#choice").change(function(){
+	//$("#table tbody tr").hide();
+	//$("#table tbody tr."+$(this).val()).show('fast');
+	//});
 
 	//this JS calls the tablesorter plugin that we already use on our site
-	$("#table").tablesorter( {sortList: [[0,0]]} );
+	//$("#table").tablesorter( {sortList: [[0,0]]} );
+	function show() {
+		document.getElementById("table1").style.display = "block";
+		document.getElementById("table2").style.display = "block";
+		document.getElementById("submit").style.display = "block";
+	}
 
+	function hide() {
+		document.getElementById("table1").style.display = "none";
+		document.getElementById("table2").style.display = "none";
+		document.getElementById("submit").style.display = "none";
+	}
 </script>
 </html>

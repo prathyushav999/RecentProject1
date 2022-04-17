@@ -580,7 +580,7 @@ function saveData()
 	  xhttp.onload = function() {
 		 var customerid=this.responseText;
 		 sendMessage(customerid);
-		  const url = "http://localhost/crud/success.html?customerid="+customerid+"&customername="+username;
+		  const url = "http://localhost/SREA/success.html?customerid="+customerid+"&customername="+username;
 	        window.location.href = url;
 		 return ;
 	  }
@@ -602,7 +602,7 @@ function loginValidation()
 		 var dbPassword=this.responseText;
 		 
 		 if (dbPassword == password) {
-			 const url = "http://localhost/crud/template.html?customerId="+customerId;
+			 const url = "http://localhost/SREA/template.html?customerId="+customerId;
 		        window.location.href = url;
 			 return ;
 			} else {

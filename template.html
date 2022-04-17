@@ -57,7 +57,7 @@
 					<tr>
 						<td>
 							<nav>
-								<ul class="mcd-menu" style="background-color:#000;height:900px;">
+								<ul class="mcd-menu" style="position:relative;margin-bottom:200%;">
 									<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
 									<li><a onclick='treeChartWindow("chart")' class="active">
 											<i class="fa fa-street-view"></i> <strong>Orgization
@@ -74,7 +74,7 @@
 								</ul>
 							</nav>
 						</td>
-						<td>
+						<td style="width:100%;">
 							<div id="editForm"
 								style="position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px; display: none; opacity: 0; text-align: center; border: 1px solid #aeaeae; width: 300px; background-color: #000; z-index: 10000; border-radius: 15px; filter: drop-shadow(5px 5px 5px #909090);">
 								<table style="margin: 10px;">
@@ -144,7 +144,7 @@
 								</table>
 							</div>
 
-							<div id="tree" style="background-color:Black;"></div>
+							<div id="tree"></div>
 							<script src="template.js"></script>
 						</td>
 
@@ -179,19 +179,19 @@
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/crud/template.html?customerId="
+				const url = "http://localhost/SREA/template.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/crud/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/crud/profile.html?customerId="
+				const url = "http://localhost/SREA/profile.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
