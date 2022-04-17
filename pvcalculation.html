@@ -3,11 +3,6 @@
 
 <head>
 <style>
-/*This CSS is only for demo purposes */
-a {
-	padding-left: 10px;
-}
-
 .padding {
 	height: 30px;
 	border: 1px solid;
@@ -44,8 +39,6 @@ a {
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src='https://kit.fontawesome.com/a076d05399.js'
-	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 </head>
 <body>
@@ -81,19 +74,20 @@ a {
 										class="fa fa-street-view"></i> <strong>Orgization
 											chart</strong> <small>Tree view</small>
 								</a></li>
-								<li><a onclick='treeChartWindow("payment")' class="active">
-										<i class="fa fa-money"></i> <strong>Payment</strong> <small>Percentage
-											division</small>
+								<li><a onclick='treeChartWindow("payment")'>
+										<i class="fa fa-money"></i> <strong>Payment</strong> <small>Payment Summary</small>
 								</a></li>
 								<li><a onclick='treeChartWindow("profile")'> <i
 										class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
 											Details</small>
 								</a></li>
+								<li><a onclick='treeChartWindow("pv")' class="active" style="display:none;" id="pv"> <i
+											class="fa fa-user-circle"></i> <strong>PV Calculation</strong> <small>Percentage division</small>
+									</a></li>
 							</ul>
 						</nav></td>
 					<td style="width: 100%; background-color: #eaeaea;">
-						<div style="padding-top: 50px; padding-left: 20px; display: none;"
-							id="calculate">
+						<div style="padding-top: 50px; padding-left: 20px;"id="calculate">
 							<table>
 								<tr>
 									<td><label>Customer ID</label><br /> <input
@@ -103,17 +97,15 @@ a {
 									<td><label>Amount Per PV</label><br /> <input id="apv"
 										style="height: 35px; width: 300px;"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td><br />
-									<button style="height: 40px;" class="btn btn-info"
+										<button style="height: 40px;" class="btn btn-info"
 											onclick='show();'>Calculate</button></td>
 								</tr>
 
 							</table>
-							<br />
-							<br />
+							<br /> <br />
 							<table id="table1" style="display: none;">
 								<tr>
-									<td><br />
-									<b>Customer Name
+									<td><br /> <b>Customer Name
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
 									<td><br />Hello123</td>
 								</tr>
@@ -130,8 +122,7 @@ a {
 									<td>500</td>
 								</tr>
 							</table>
-							<br />
-							<br />
+							<br /> <br />
 							<div id="table2" style="display: none;">
 								<table class="padding" style="width: 100%;">
 
@@ -205,10 +196,7 @@ a {
 									</tbody>
 								</table>
 							</div>
-							<br />
-							<br />
-							<br />
-							<br />
+							<br /> <br /> <br /> <br />
 							<div style="margin-bottom: 5%; display: none;" id="submit">
 								<center>
 									<button class="btn btn-info" onclick="hide();">submit</button>
@@ -216,97 +204,12 @@ a {
 							</div>
 						</div>
 
-						<div style="padding-top: 50px; padding-left: 20px; display: none;"
-							id="total">
-
-
-							<div id="table12" style="position: relative; text-align: center;">
-								<label style="color: purple; font-size: 30px;"><center>
-										<b> Earned Summary</b>
-									</center></label>
-								<table style="width: 100%;">
-
-									<tr>
-										<td style="text-align: center;"><i
-											style="color: #DAA520;" class='fas fa-money-bill-alt fa-4x'></i></td>
-										<td style="text-align: center;"><i
-											style="color: #DAA520;" class='fas fa-donate fa-4x'></i></td>
-
-									</tr>
-									<tr>
-										<td style="font-size: 25px; width: 650px; text-align: center;">Earned
-											PV's</td>
-										<td style="font-size: 25px; text-align: center;">Earned
-											Amount</td>
-
-									</tr>
-
-									<tr>
-										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
-
-									</tr>
-								</table>
-								<label
-									style="margin-top: 100px; color: purple; font-size: 30px;"><center>
-										<b> Paid Summary</b>
-									</center></label>
-								<table style="width: 100%;">
-									<tr>
-										<td style="text-align: center;"><i
-											style="color: #18A558;" class='fas fa-money-bill-alt fa-4x'></i></td>
-										<td style="text-align: center;"><i
-											style="color: #18A558;" class='fas fa-donate fa-4x'></i></td>
-
-									</tr>
-									<tr>
-										<td style="font-size: 25px; width: 650px; text-align: center;">Paid
-											PV's</td>
-										<td style="font-size: 25px; text-align: center;">Paid
-											Amount</td>
-
-									</tr>
-
-									<tr>
-										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
-
-									</tr>
-								</table>
-								<label
-									style="color: purple; font-size: 30px; margin-top: 100px;"><center>
-										<b> Balance Summary</b>
-									</center></label>
-								<table style="width: 100%;">
-									<tr>
-										<td style="text-align: center;"><i style="color: red;"
-											class='fas fa-money-bill-alt fa-4x'></i></td>
-										<td style="text-align: center;"><i style="color: red;"
-											class='fas fa-donate fa-4x'></i></td>
-
-									</tr>
-									<tr>
-										<td style="font-size: 25px; width: 650px; text-align: center;">Balance
-											PV's</td>
-										<td style="font-size: 25px; text-align: center;">Balance
-											Amount</td>
-
-									</tr>
-
-									<tr>
-										<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-										<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
-
-									</tr>
-								</table>
-							</div>
 					</td>
 
 				</tr>
 			</table>
 		</div>
 	</div>
-
 </body>
 <script type="text/javascript">
 	var queryString = new Array();
@@ -324,12 +227,9 @@ a {
 		}
 		if (queryString["customerId"] != null) {
 			customerId = queryString["customerId"];
-			if (customerId == 'SREA-10') {
-				document.getElementById("calculate").style.display = "block";
-			} else {
-				document.getElementById("total").style.display = "block";
-			}
-
+			if (customerId == 'SREA-0') {
+				document.getElementById("pv").style.display = "block";
+			} 
 			/* const url = "http://localhost/crud/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
@@ -352,13 +252,13 @@ a {
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/template.html?customerId="
+				const url = "http://localhost/SREA/orgchart.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.php?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
@@ -369,17 +269,14 @@ a {
 				window.location.href = url;
 				return;
 			}
-
+			if (screen == "pv") {
+				const url = "http://localhost/SREA/pvcalculation.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
 		}
 	}
-	//here is the custom JS we would like to add
-	//$("#choice").change(function(){
-	//$("#table tbody tr").hide();
-	//$("#table tbody tr."+$(this).val()).show('fast');
-	//});
-
-	//this JS calls the tablesorter plugin that we already use on our site
-	//$("#table").tablesorter( {sortList: [[0,0]]} );
 	function show() {
 		document.getElementById("table1").style.display = "block";
 		document.getElementById("table2").style.display = "block";

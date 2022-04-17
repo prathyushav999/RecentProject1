@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
 <title>Document</title>
-<link href="template.css" rel="stylesheet" />
+<link href="orgchart.css" rel="stylesheet" />
 
 <title>SREA Real Estates | Contact</title>
 
@@ -35,8 +35,9 @@
 	<div id="site-content" style="background-color: #000;">
 		<div class="site-header">
 			<div>
-				<a href="" id="branding" style="height:58px;width: 1300px;"> <img style="padding-left:20px;"
-					src="images/logo.png" alt="" class="logo">
+				<a href="" id="branding" style="height: 58px; width: 1300px;"> <img
+					style="padding-left: 20px;" src="images/logo.png" alt=""
+					class="logo">
 					<div class="logo-text">
 						<h1 class="site-title">SREA Real Estates</h1>
 						<small class="site-description"><b>Where dreams come
@@ -57,24 +58,31 @@
 					<tr>
 						<td>
 							<nav>
-								<ul class="mcd-menu" style="position:relative;margin-bottom:200%;">
+								<ul class="mcd-menu"
+									style="position: relative; margin-bottom: 175%;">
 									<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
 									<li><a onclick='treeChartWindow("chart")' class="active">
 											<i class="fa fa-street-view"></i> <strong>Orgization
 												chart</strong> <small>Tree view</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("payment")'> <i
-											class="fa fa-money"></i> <strong>Payment</strong> <small>Percentage
-												division</small>
+											class="fa fa-money"></i> <strong>Payment</strong> <small>Payment
+												Summary</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("profile")'> <i
 											class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
 												Details</small>
 									</a></li>
+									<li><a onclick='treeChartWindow("pv")'
+										style="display: none;" id="pv"> <i
+											class="fa fa-user-circle"></i> <strong>PV
+												Calculation</strong> <small>Percentage division</small>
+									</a></li>
 								</ul>
 							</nav>
+
 						</td>
-						<td style="width:100%;">
+						<td style="width: 100%;">
 							<div id="editForm"
 								style="position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px; display: none; opacity: 0; text-align: center; border: 1px solid #aeaeae; width: 300px; background-color: #000; z-index: 10000; border-radius: 15px; filter: drop-shadow(5px 5px 5px #909090);">
 								<table style="margin: 10px;">
@@ -144,8 +152,7 @@
 								</table>
 							</div>
 
-							<div id="tree"></div>
-							<script src="template.js"></script>
+							<div id="tree"></div> <script src="orgchart.js"></script>
 						</td>
 
 					</tr>
@@ -179,13 +186,13 @@
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/template.html?customerId="
+				const url = "http://localhost/SREA/orgchart.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.php?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
@@ -196,7 +203,12 @@
 				window.location.href = url;
 				return;
 			}
-
+			if (screen == "pv") {
+				const url = "http://localhost/SREA/pvcalculation.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
 		}
 	}
 </script>

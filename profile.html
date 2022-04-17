@@ -59,12 +59,14 @@
 												chart</strong> <small>Tree view</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("payment")'> <i
-											class="fa fa-money"></i> <strong>Payment</strong> <small>Percentage
-												division</small>
+											class="fa fa-money"></i> <strong>Payment</strong> <small>Payment Summary</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("profile")' class="active">
 											<i class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
 												Details</small>
+									</a></li>
+									<li><a onclick='treeChartWindow("pv")' style="display:none;" id="pv"> <i
+											class="fa fa-user-circle"></i> <strong>PV Calculation</strong> <small>Percentage division</small>
 									</a></li>
 								</ul>
 							</nav>
@@ -95,6 +97,9 @@
 		}
 		if (queryString["customerId"] != null) {
 			customerId = queryString["customerId"];
+			if (customerId == 'SREA-0') {
+				document.getElementById("pv").style.display = "block";
+			} 
 			/* const url = "http://localhost/SREA/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
@@ -117,19 +122,25 @@
 			customerId = queryString["customerId"];
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/template.html?customerId="
+				const url = "http://localhost/SREA/orgchart.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.html?customerId="
+				const url = "http://localhost/SREA/payment.php?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
 				const url = "http://localhost/SREA/profile.html?customerId="
+						+ customerId;
+				window.location.href = url;
+				return;
+			}
+			if (screen == "pv") {
+				const url = "http://localhost/SREA/pvcalculation.html?customerId="
 						+ customerId;
 				window.location.href = url;
 				return;

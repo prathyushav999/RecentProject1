@@ -421,8 +421,8 @@ margin-left: 30px;
 <input  type="text" class="cont_form_add" placeholder="Sponser Name"  id="sponsername" name="sponsername"/>
 <input type="text"  class="cont_form_add" placeholder="MobileNumber" id="mobileno" name="mobileno" onchange="mobileNoValidation(this.value)" />
 <p id="mobilenoerr" style="color:red;font-size:15px;font-style:italic"></p>
-<input type="password" class="cont_form_add" placeholder="Password" id="password" name="password" onchange="passwordValidation()" />
-<input type="password" class="cont_form_add" placeholder="Confirm Password"  id="repassword" onchange="passwordValidation()" />
+<input type="password" class="cont_form_add" placeholder="Password" id="passwordvalue" name="password"/>
+<input type="password" class="cont_form_add" placeholder="Confirm Password"  id="repassword" onchange="passwordValidation(this.value)" />
 <p id="passworderr" style="color:red;font-size:15px;font-style:italic"></p>
 <p id="errmsg" style="color:red;font-size:15px;font-style:italic"></p>
 <button id="signup"  value="Save" class="btn_sign_up" onclick="validate()">SIGN UP</button>
@@ -447,7 +447,7 @@ var email=document.getElementById("email").value;
 var username=document.getElementById("username").value;
 var sponserid=document.getElementById("sponserid").value;
 var mobileno=document.getElementById("mobileno").value;
-var password=document.getElementById("password").value;
+var password=document.getElementById("passwordvalue").value;
 var repassword=document.getElementById("repassword").value;
 var flag=0;
 	if(!emailValidation(email))
@@ -455,11 +455,11 @@ var flag=0;
 	if(!usernameValidation(username))
 		flag=1;
 	if(!sponserIdValidation(sponserid))
-		flag=1
+		flag=1;
 	if(!mobileNoValidation(mobileno))
-		flag=1
+		flag=1;
 	if(!passwordValidation())
-		flag=1
+		flag=1;
 	
 	if(flag==1)
 		return;
@@ -543,7 +543,7 @@ function mobileNoValidation(mobileno)
 
 function passwordValidation()
 {
-	password=document.getElementById("password").value;
+	password=document.getElementById("passwordvalue").value;
 	repassword=document.getElementById("repassword").value;
 	if(password=="" || repassword=="")
 	{
@@ -574,7 +574,7 @@ function saveData()
 	var sponserid=document.getElementById("sponserid").value;
 	var sponsername=document.getElementById("sponsername").value;
 	var mobileno=document.getElementById("mobileno").value;
-	var password=document.getElementById("password").value;
+	var password=document.getElementById("passwordvalue").value;
 	  
 	  const xhttp = new XMLHttpRequest();
 	  xhttp.onload = function() {
@@ -602,7 +602,7 @@ function loginValidation()
 		 var dbPassword=this.responseText;
 		 
 		 if (dbPassword == password) {
-			 const url = "http://localhost/SREA/template.html?customerId="+customerId;
+			 const url = "http://localhost/SREA/orgchart.html?customerId="+customerId;
 		        window.location.href = url;
 			 return ;
 			} else {
