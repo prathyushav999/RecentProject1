@@ -625,7 +625,7 @@ function showCustomer(str) {
 	  const xhttp = new XMLHttpRequest();
 	  xhttp.onload = function() {
 		 var res=this.responseText;
-		 if(res===""){
+		 if(res==""){
 	    document.getElementById("sponsername").value = "";
 	    document.getElementById("errmsg").innerHTML = "INVALID SPONSERID";
 	    document.getElementById("signup").disabled = true;
@@ -671,7 +671,6 @@ function sendMessage(customerid) {
 		 document.getElementById("passworderr").innerHTML=res;
 		 return ;
 	  }
-	  xhttp.open("POST", "sendmessage.php");
 	  xhttp.setRequestHeader("Content-Type", "application/json");
 	  var data = {mobileno:mobileno,username:username,customerid:customerid};
 	  xhttp.send(JSON.stringify(data));	  

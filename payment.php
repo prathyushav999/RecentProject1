@@ -17,6 +17,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
 <title>Document</title>
 <link href="template.css" rel="stylesheet" />
@@ -38,7 +39,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+
 <script src='https://kit.fontawesome.com/a076d05399.js'
 	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
@@ -67,34 +68,36 @@
 					</div>
 				</a>
 
-			</div>
-			<div>
+			
 				<table>
 					<tr>
 						<td>
 							<nav>
 								<ul class="mcd-menu"
-									style="position: relative; margin-bottom: 250%;">
+									style="position:relative; margin-top:-125%;">
 									<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
 									<li><a onclick='treeChartWindow("chart")'> <i
 											class="fa fa-street-view"></i> <strong>Orgization chart</strong>
 											<small>Tree view</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("payment")' class="active"> <i
-											class="fas fa-money-bill-alt"></i> <strong>Payment</strong> <small>Payment Summary</small>
+											class="fa fa-money-bill-alt"></i> <strong>Payment</strong> <small>Payment
+												Summary</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("profile")'> <i
 											class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
 												Details</small>
 									</a></li>
-									<li><a onclick='treeChartWindow("pv")' style="display:none;" id="pv"> <i
-											class="fa fa-user-circle"></i> <strong>PV Calculation</strong> <small>Percentage division</small>
+									<li><a onclick='treeChartWindow("pv")' style="display: none;"
+										id="pv"> <i class="fa fa-user-circle"></i> <strong>PV
+												Calculation</strong> <small>Percentage division</small>
 									</a></li>
 								</ul>
 							</nav>
 						</td>
 						<td style="width: 100%; background-color: #fff;">
-							<div style="padding-left: 20px; padding-top: 10px;display:none;"
+							<div
+								style="padding-left: 20px; padding-top: 10px; display: none;"
 								id="main-content">
 								<h2>All Customer Records</h2>
 								<br />
@@ -172,8 +175,10 @@
 										</tr>
 
 										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-											<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="earnedpv">0</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="earnedamount">0</td>
 
 										</tr>
 									</table>
@@ -198,8 +203,10 @@
 										</tr>
 
 										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-											<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="paidpv">0</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="paidamount">0</td>
 
 										</tr>
 									</table>
@@ -225,8 +232,10 @@
 										</tr>
 
 										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;">200</td>
-											<td style="font-size: 20px; color: blue; text-align: center;">2000</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="balancepv">0</td>
+											<td style="font-size: 20px; color: blue; text-align: center;"
+												id="balanceamount">0</td>
 
 										</tr>
 									</table>
@@ -249,8 +258,7 @@
 <script type="text/javascript">
 	var queryString = new Array();
 	var customerId = "";
-	var queryString = new Array();
-	var customerId = "";
+	let res;
 	window.onload = function() {
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {
@@ -264,19 +272,50 @@
 		}
 		if (queryString["customerId"] != null) {
 			customerId = queryString["customerId"];
+			
 			if (customerId == 'SREA-0') {
 				document.getElementById("main-content").style.display = "block";
 				document.getElementById("pv").style.display = "block";
 			} else {
 				document.getElementById("total").style.display = "block";
-			}
+				data(customerId);
 
 			/* const url = "http://localhost/crud/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
 			return; */
+		 }
 		}
 	};
+
+	
+
+	function data(customerId) {
+		
+		  
+
+		  const xhttp = new XMLHttpRequest();
+
+		  
+		  xhttp.onload = function() {
+			 var res=this.responseText;
+			
+			
+			 const resArray = res.split(",");
+			
+			 if(res!=""){
+				   document.getElementById("earnedpv").innerHTML = resArray[0];
+				    document.getElementById("earnedamount").innerHTML = resArray[1];
+				    document.getElementById("paidpv").innerHTML = resArray[2];
+				    document.getElementById("paidamount").innerHTML = resArray[3];
+				    document.getElementById("balancepv").innerHTML = resArray[4];
+				    document.getElementById("balanceamount").innerHTML = resArray[5];
+
+			}
+		  }
+		  xhttp.open("GET", "retrivecustomerbyid.php?customerid="+customerId);
+		  xhttp.send();
+		}
 	function treeChartWindow(screen) {
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {

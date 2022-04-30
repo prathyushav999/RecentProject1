@@ -38,7 +38,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 </head>
 <body>
@@ -99,27 +100,28 @@
 									<td><br />
 										<button style="height: 40px;" class="btn btn-info"
 											onclick='show();'>Calculate</button></td>
+											
 								</tr>
 
 							</table>
 							<br /> <br />
 							<table id="table1" style="display: none;">
 								<tr>
-									<td><br /> <b>Customer Name
+									<td ><br /> <b>Customer Name
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
-									<td><br />Hello123</td>
+									<td id="customerName"><br />Hello123</td>
 								</tr>
 
 								<tr>
-									<td style="padding-top: 5px;"><b>Earned
+									<td  style="padding-top: 5px;"><b>Earned
 											Pv's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b></td>
-									<td>120</td>
+									<td id="customerPvs">120</td>
 								</tr>
 
 								<tr>
-									<td style="padding-top: 5px;"><b>Earned
+									<td  style="padding-top: 5px;"><b>Earned
 											Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b></td>
-									<td>500</td>
+									<td id="customerAmount">500</td>
 								</tr>
 							</table>
 							<br /> <br />
@@ -127,7 +129,7 @@
 								<table class="padding" style="width: 100%;">
 
 									<thead>
-										<tr>
+										<tr >
 											<th class="centertd">Sponser Name</th>
 											<th class="centertd">Sponser Id</th>
 											<th class="centertd">Level</th>
@@ -136,70 +138,66 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td class="padding">Salud Family Health Center</td>
-											<td class="centertd">970-484-0999</td>
-											<td class="padding">220 E. Rogers Rd.</td>
-											<td class="padding">Longmont</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr7" hidden>
+											<td class="padding" id="sponserName7">Salud Family Health Center</td>
+											<td class="centertd" id="sponserId7">970-484-0999</td>
+											<td class="padding" id="level7">220 E. Rogers Rd.</td>
+											<td class="padding" id="pvs7">Longmont</td>
+											<td class="padding" id="amount7">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Clinica Family Health Center</td>
-											<td class="centertd">303-650-4460</td>
-											<td class="padding">1345 Plaza Court N.</td>
-											<td class="padding">Lafayette</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr6" hidden>
+											<td class="padding" id="sponserName6">Clinica Family Health Center</td>
+											<td class="centertd" id="sponserId6">303-650-4460</td>
+											<td class="padding" id="level6">1345 Plaza Court N.</td>
+											<td class="padding" id="pvs6">Longmont</td>
+											<td class="padding" id="amount6">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">People's Medical Clinic</td>
-											<td class="centertd">303-650-4460</td>
-											<td class="padding">2525 13th St.</td>
-											<td class="padding">Boulder</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr5" hidden>
+											<td class="padding" id="sponserName5">People's Medical Clinic</td>
+											<td class="centertd" id="sponserId5">303-650-4460</td>
+											<td class="padding"  id="level5">2525 13th St.</td>
+											<td class="padding" id="pvs5">Longmont</td>
+											<td class="padding" id="amount5">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Boulder Community Health</td>
-											<td class="centertd">720-854-7000</td>
-											<td class="padding">4747 Arapahoe Ave.</td>
-											<td class="padding">Boulder</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr4" hidden>
+											<td class="padding" id="sponserName4">Boulder Community Health</td>
+											<td class="centertd" id="sponserId4">720-854-7000</td>
+											<td class="padding" id="level4">4747 Arapahoe Ave.</td>
+											<td class="padding" id="pvs4">Longmont</td>
+											<td class="padding" id="amount4">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Avista Hospital</td>
-											<td class="centertd">303-673-1000</td>
-											<td class="padding">100 Health Park Dr.</td>
-											<td class="padding">Louisville</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr3" hidden>
+											<td class="padding" id="sponserName3">Avista Hospital</td>
+											<td class="centertd" id="sponserId3">303-673-1000</td>
+											<td class="padding" id="level3">100 Health Park Dr.</td>
+											<td class="padding" id="pvs3">Longmont</td>
+											<td class="padding" id="amount3">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Good Samaritan Medical Center</td>
-											<td class="centertd">303-689-4000</td>
-											<td class="padding">200 Exempla Cr.</td>
-											<td class="padding">Lafayette</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr2" hidden>
+											<td class="padding" id="sponserName2">Good Samaritan Medical Center</td>
+											<td class="centertd" id="sponserId2">303-689-4000</td>
+											<td class="padding" id="level2">200 Exempla Cr.</td>
+											<td class="padding" id="pvs2">Longmont</td>
+											<td class="padding" id="amount2">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Longmont United Hospital</td>
-											<td class="centertd">303-651-5111</td>
-											<td class="padding">1950 Mountain View Ave.</td>
-											<td class="padding">Longmont</td>
-											<td class="padding">Longmont</td>
+										<tr id="tr1" hidden>
+											<td class="padding" id="sponserName1"></td>
+											<td class="centertd" id="sponserId1"></td>
+											<td class="padding" id="level1"></td>
+											<td class="padding" id="pvs1">Longmont</td>
+											<td class="padding" id="amount1">Longmont</td>
 										</tr>
-										<tr>
-											<td class="padding">Birth Center of Boulder</td>
-											<td class="centertd">303-443-3993</td>
-											<td class="padding">2800 Folsom St.</td>
-											<td class="padding">Boulder</td>
-											<td class="padding">Longmont</td>
-										</tr>
+									
 
 									</tbody>
 								</table>
 							</div>
+							<div><h1 id="msg"></h1>
+							</div>
 							<br /> <br /> <br /> <br />
 							<div style="margin-bottom: 5%; display: none;" id="submit">
 								<center>
-									<button class="btn btn-info" onclick="hide();">submit</button>
+									<button class="btn btn-info" onclick="update();">submit</button>
 								</center>
 							</div>
 						</div>
@@ -278,9 +276,117 @@
 		}
 	}
 	function show() {
+		var customerId=document.getElementById("customerId").value;
+		var pvs=parseInt(document.getElementById("pvs").value);
+		var amountPerPv=parseInt(document.getElementById("apv").value);
+		if(customerId.length==0)
+			{
+			alert("CustomerId should not be Empty");
+			return;
+			}
+
+		if(!(typeof pvs === 'number' && isFinite(pvs)))
+			{
+			alert("PVS should have a number");
+			return;
+			}
+
+		if(!(typeof amountPerPv === 'number' && isFinite(amountPerPv)))
+			{
+			alert("amountPerPv should have a number");
+			return;
+			}
+		
+		const xhttp = new XMLHttpRequest();
+		  var res;
+		  document.getElementById("tr7").setAttribute("hidden", true);
+		  document.getElementById("tr6").setAttribute("hidden", true);
+		  document.getElementById("tr5").setAttribute("hidden" , true);
+		  document.getElementById("tr4").setAttribute("hidden" ,true);
+		  document.getElementById("tr3").setAttribute("hidden" ,true);
+		  document.getElementById("tr2").setAttribute("hidden", true);
+		  document.getElementById("tr1").setAttribute("hidden", true);
+		  
+		  xhttp.onload = function() {
+			 res=this.responseText;
+			 document.getElementById("msg").innerHTML=res;
+			 if(!(res.includes("<br>")))
+			{
+				 document.getElementById("msg").innerHTML="Unsuccessfull : "+res;
+				 return;
+		    }
+			 res=res.split("<br>");
+			 var tempres=res[0].split(" ");
+			 document.getElementById("customerName").innerHTML="<br>"+tempres[0];
+			 document.getElementById("customerPvs").innerHTML="<br>"+tempres[3];
+			 document.getElementById("customerAmount").innerHTML="<br>"+tempres[4];
+			 var count=1;
+			 while(count<res.length-1)
+				 {
+				 tempres=res[count].split(" ");	 
+				 document.getElementById("tr"+(8-count)).removeAttribute("hidden");
+				 document.getElementById("sponserName"+(8-count)).innerHTML=tempres[0];
+				 document.getElementById("sponserId"+(8-count)).innerHTML=tempres[1];
+				 document.getElementById("level"+(8-count)).innerHTML=tempres[2];
+				 document.getElementById("pvs"+(8-count)).innerHTML=tempres[3];
+				 document.getElementById("amount"+(8-count)).innerHTML=tempres[4];
+				 count+=1;
+				 }
+			 return ;
+		  }
+		  xhttp.open("POST", "showpvs.php");
+		  xhttp.setRequestHeader("Content-Type", "application/json");
+		  var data = {customerId:customerId,pvs:pvs,amountPerPv:amountPerPv};
+		  xhttp.send(JSON.stringify(data));	  
+			
 		document.getElementById("table1").style.display = "block";
 		document.getElementById("table2").style.display = "block";
 		document.getElementById("submit").style.display = "block";
+	}
+	
+	function update() {
+		var customerId=document.getElementById("customerId").value;
+		var pvs=parseInt(document.getElementById("pvs").value);
+		var amountPerPv=parseInt(document.getElementById("apv").value);
+		if(customerId.length==0)
+			{
+			alert("CustomerId should not be Empty");
+			return;
+			}
+
+		if(!(typeof pvs === 'number' && isFinite(pvs)))
+			{
+			alert("PVS should have a number");
+			return;
+			}
+
+		if(!(typeof amountPerPv === 'number' && isFinite(amountPerPv)))
+			{
+			alert("amountPerPv should have a number");
+			return;
+			}
+		
+		const xhttp = new XMLHttpRequest();
+		  var res;
+		  xhttp.onload = function() {
+			 res=this.responseText;
+			 if(!(res.includes("<br>")))
+				{
+					 document.getElementById("msg").innerHTML="Unsuccessfull : "+res;
+					 return;
+			    }
+			 document.getElementById("msg").innerHTML="Success";
+
+		  }
+		  xhttp.open("POST", "updatepvs.php");
+		  xhttp.setRequestHeader("Content-Type", "application/json");
+		  var data = {customerId:customerId,pvs:pvs,amountPerPv:amountPerPv};
+		  xhttp.send(JSON.stringify(data));	  
+			
+		  document.getElementById("table1").style.display = "none";
+		  document.getElementById("table2").style.display = "none";
+		  document.getElementById("submit").style.display = "none";
+		  
 	}
 
 	function hide() {

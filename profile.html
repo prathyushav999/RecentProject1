@@ -23,6 +23,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 </head>
 <body>
@@ -128,8 +130,7 @@
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.php?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/payment.php";
 				window.location.href = url;
 				return;
 			}

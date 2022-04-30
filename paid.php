@@ -8,14 +8,16 @@ if (mysqli_num_rows($viewresult) > 0) {
         
         $paidAmount=$row['paidAmount']+$row['balanceAmount'];
         $balanceAmount = 0;
+        $paidPvs=$row['paidPvs']+$row['balancePvs'];
+        $balancePvs = 0;
 }
 
 include 'config.php';
 
-$sql = "UPDATE customer SET balanceAmount = '{$balanceAmount}', paidAmount = '{$paidAmount}' WHERE customerid = '{$customerid}'";
+$sql = "UPDATE customer SET balanceAmount = '{$balanceAmount}', paidAmount = '{$paidAmount}',paidPvs='{$paidPvs}',balancePvs='$balancePvs' WHERE customerid = '{$customerid}'";
 $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
 
-header("Location: http://localhost/SREA/payment.php?customerid='{$customerid}'");
+header("Location: http://localhost/SREA/payment.php?customerId=SREA-0");
 
 mysqli_close($conn);
 }
