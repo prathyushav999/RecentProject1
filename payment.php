@@ -55,61 +55,8 @@ body {
 	margin: 0 -4px;
 }
 
-.sidebar
-
-
-
-
-
-
-
-
-
-
-a
-
-
-
-
-
-
-
-
-
-
-:hover
-
-
-
-
-
-
-
-
-
-
-:not
-
-
-
-
- 
-
-
-
-
-(
-.active
-
-
-
-
- 
-
-
-
-
-) {
+.sidebar a :hover :not(.active)
+ {
 	background-color: #555;
 	color: white;
 }
@@ -165,7 +112,7 @@ div.content {
 
 
 </head>
-<body style="background-color: #000;">
+<body onpageshow="checksession()" style="background-color: #000;">
 	<script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
 
 
@@ -174,7 +121,7 @@ div.content {
 			<div>
 				<table style="width: 100%;">
 					<tr>
-						<td style="height: 58px; width: 50%;"><a href="" id="branding"> <img
+						<td style="width: 50%;"><a href="" id="branding"> <img
 								style="padding-left: 20px;" src="images/logo.png" alt=""
 								class="logo">
 								<div class="logo-text">
@@ -184,8 +131,8 @@ div.content {
 								</div>
 						</a></td>
 						<td
-							style="height: 58px; width: 50%; text-align: right; padding-right: 20px;">
-							<a href="#" class="btn btn-info"> <span class="fa fa-power-off"></span>
+							style="width: 50%; text-align: right; padding-right: 20px;">
+							<a onclick='logout()' href="#" class="btn btn-info"> <span class="fa fa-power-off"></span>
 								Log out
 						</a>
 
@@ -271,7 +218,7 @@ div.content {
 									id="total">
 
 
-									<div style="margin-bottom: 250px;">
+									<div style="margin-bottom: 250px; padding-top:50px;">
 										<label style="color: purple; font-size: 30px;"><center>
 												<b> Earned Summary</b>
 											</center></label>
@@ -386,6 +333,9 @@ div.content {
 	var customerId = "";
 	let res;
 	window.onload = function() {
+		if (localStorage.getItem("customerid")== "null") {
+			window.location.href = '/SREA/login.html';
+		}
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {
 				var params = window.location.search.split('?')[1].split('&');
@@ -479,5 +429,30 @@ div.content {
 			}
 		}
 	}
+	function logout() {
+		console.log("logout");
+		var cookies = document.cookie.split(";");
+		var count = 0;
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i];
+			var eqPos = cookie.indexOf("=");
+			var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+			document.cookie = name
+					+ "=; domain=lazacode.org; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+					addcustomer(null);
+			if (count == cookies.length - 1) {
+				window.location.href = '/SREA/login.html';
+			}
+			count++;
+
+		}
+	}
+	function checksession()
+	{
+		if (localStorage.getItem("customerid")== "null") {
+			window.location.href = '/SREA/login.html';
+		}
+	}
+		
 </script>
 </html>

@@ -1,4 +1,7 @@
 window.onload = function() {
+	if (localStorage.getItem("customerid")== "null") {
+				window.location.href = '/SREA/login.html';
+			}
 		
 	OrgChart.templates.myTemplate = Object.assign({}, OrgChart.templates.ana);
 
