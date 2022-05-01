@@ -66,15 +66,7 @@ body {
 
 
 
-
-
-
-
 a
-
-
-
-
 
 
 
@@ -96,20 +88,12 @@ a
 
 
 
-
-
-
-
 :not
 
 
 
 
-
-
  
-
-
 
 
 
@@ -120,40 +104,16 @@ a
 
 
 
-
-
  
 
 
 
 
-
-
-)
-{
-background-color
-
-
-:
-
- 
-
-#555
-
-
-;
-color
-
-
-:
-
- 
-
-white
-
-
-;
+) {
+	background-color: #555;
+	color: white;
 }
+
 div.content {
 	margin-left: 190px;
 	padding: 1px 16px;
@@ -225,8 +185,8 @@ div.content {
 						</a></td>
 						<td
 							style="height: 58px; width: 50%; text-align: right; padding-right: 20px;">
-							<a href="#" class="btn btn-info" onclick='logout()'> <span
-								class="fa fa-power-off"></span> Log out
+							<a href="#" class="btn btn-info"> <span class="fa fa-power-off"></span>
+								Log out
 						</a>
 
 
@@ -252,7 +212,10 @@ div.content {
 										style="padding-right: 10px;"></i> <strong>PV Calculation</strong>
 										<small>Percentage division</small>
 									</a>
-
+									
+									<!-- <a class="active" href="#org">Organization Chart</a> 
+									<a href="#payment">Payment</a>
+									<a href="#pv">PV Calculation</a>  -->
 								</div>
 								<div class="content"
 									style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; display: none; text-align: center;"
@@ -261,10 +224,10 @@ div.content {
 									<br />
     <?php
     include 'config.php';
-    
+
     $sql = "SELECT * FROM customer";
     $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
-    
+
     if (mysqli_num_rows($result) > 0) {
         ?>
     <table style="width: 100%; margin-bottom: 200px;">
@@ -514,23 +477,6 @@ div.content {
 				window.location.href = url;
 				return;
 			}
-		}
-	}
-	function logout() {
-		console.log("logout");
-		var cookies = document.cookie.split(";");
-		var count = 0;
-		for (var i = 0; i < cookies.length; i++) {
-			var cookie = cookies[i];
-			var eqPos = cookie.indexOf("=");
-			var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-			document.cookie = name
-					+ "=; domain=lazacode.org; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-			if (count == cookies.length - 1) {
-				window.location.href = '/SREA/login.html';
-			}
-			count++;
-
 		}
 	}
 </script>
