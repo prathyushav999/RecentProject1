@@ -63,7 +63,11 @@ body {
 	margin: 0 -4px;
 }
 
+<<<<<<< HEAD
 .sidebar a:hover:not(.active) {
+=======
+.sidebar a:hover:not (.active ) {
+>>>>>>> a4df988 (logout changes)
 	background-color: #555;
 	color: white;
 }
@@ -132,13 +136,12 @@ div.content {
 									<h1 class="site-title">SREA Real Estates</h1>
 									<small class="site-description"><b>Where dreams
 											come true.</b></small>
-
 								</div>
 						</a></td>
 						<td
 							style="height: 58px; width: 50%; text-align: right; padding-right: 20px;">
-							<a href="#" class="btn btn-info"> <span
-								class="fa fa-power-off"></span> Log out
+							<a href="#" class="btn btn-info" onclick='logout()'>
+								<span class="fa fa-power-off"></span> Log out
 						</a>
 
 
@@ -164,10 +167,7 @@ div.content {
 										class="fa fa-calculator" style="padding-right: 10px;"></i> <strong>PV
 											Calculation</strong> <small>Percentage division</small>
 									</a>
-									<!-- <a class="active" href="#org">Organization Chart</a> 
-									<a href="#payment">Payment</a>
-									<a href="#pv">PV Calculation</a>  -->
-									
+
 								</div>
 								<div class="content"
 									style="width: 100%; background-color: #eaeaea;">
@@ -337,7 +337,19 @@ div.content {
 			return; */
 		}
 	};
+	function deleteAllCookies() {
+		var cookies = document.cookie.split(";");
 
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i];
+			var eqPos = cookie.indexOf("=");
+			var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+			document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		}
+		const url = "http://localhost/SREA/login.html";
+		window.location.href = url;
+		return;
+	}
 	function treeChartWindow(screen) {
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {
@@ -506,6 +518,23 @@ div.content {
 		document.getElementById("table1").style.display = "none";
 		document.getElementById("table2").style.display = "none";
 		document.getElementById("submit").style.display = "none";
+	}
+	function logout() {
+		console.log("logout");
+		var cookies = document.cookie.split(";");
+		var count = 0;
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i];
+			var eqPos = cookie.indexOf("=");
+			var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+			document.cookie = name
+					+ "=; domain=lazacode.org; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+			if (count == cookies.length - 1) {
+				window.location.href = '/SREA/login.html';
+			}
+			count++;
+
+		}
 	}
 </script>
 </html>
