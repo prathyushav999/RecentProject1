@@ -55,46 +55,19 @@ body {
 
 
 
-a
+a :hover
 
 
-:hover
-
-
-:not
-
- 
-
-(
+:not(
 .active
 
  
 
-)
-{
-background-color
-
-
-:
-
- 
-
-#555
-
-
-;
-color
-
-
-:
-
- 
-
-white
-
-
-;
+) {
+	background-color: #555;
+	color: white;
 }
+
 div.content {
 	margin-left: 190px;
 	padding: 1px 16px;
@@ -182,9 +155,11 @@ div.content {
 									</a>
 									<!-- <a onclick='treeChartWindow("profile")'> <i
 										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
-									<small>Your Details</small> -->
-									</a> --> <a onclick='treeChartWindow("pv")' style="display: none;"
-										id="pv"> <i class="fa fa-user-circle"></i> <strong>PV
+									<small>Your Details</small>
+									</a> -->
+									<a onclick='treeChartWindow("pv")' style="display: none;"
+										id="pv"> <i class="fa fa-calculator"
+										style="padding-right: 10px;"></i> <strong> PV
 											Calculation</strong> <small>Percentage division</small>
 									</a>
 									<!-- <a class="active" href="#org">Organization Chart</a> 

@@ -1,4 +1,5 @@
 window.onload = function() {
+		
 	OrgChart.templates.myTemplate = Object.assign({}, OrgChart.templates.ana);
 
 	OrgChart.templates.myTemplate.size = [ 125, 170 ];
@@ -136,6 +137,13 @@ window.onload = function() {
 			id : id
 		};
 		xhttp.send(JSON.stringify(data));
+		if (id != null) {
+			if (id == 'SREA-0') {
+				document.getElementById("pv").style.display = "block";
+			}
+
+		}
+
 
 	}
 	function redirect() {

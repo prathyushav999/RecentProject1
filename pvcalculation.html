@@ -12,9 +12,15 @@
 <style>
 .centertd {
 	height: 30px;
+	border: 1px solid;
 	text-align: center;
 }
-
+.padding {
+	height: 30px;
+	border: 1px solid;
+	padding-left: 10px;
+	padding-right: 10px;
+}
 body {
 	margin: 0;
 	font-family: "Lato", sans-serif;
@@ -55,186 +61,10 @@ body {
 	margin: 0 -4px;
 }
 
-.sidebar
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:hover
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:not
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-(
-.active
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-)
+.sidebar a:hover:not(.active)
 {
-background-color
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-#555
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
-color
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-white
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
+background-color:#555;
+color:white;
 }
 div.content {
 	margin-left: 190px;
@@ -323,7 +153,7 @@ div.content {
 									</a>
 									<!-- <a onclick='treeChartWindow("profile")'> <i
 										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
-									<small>Your Details</small> -->
+									<small>Your Details</small> 
 									</a> --><a onclick='treeChartWindow("pv")' class="active"
 										style="display: none;" id="pv"> <i
 										class="fa fa-calculator" style="padding-right: 10px;"></i> <strong>PV
@@ -567,8 +397,12 @@ div.content {
 		document.getElementById("tr1").setAttribute("hidden", true);
 
 		xhttp.onload = function() {
+			document.getElementById("msg").innerHTML = "";
+			document.getElementById("customerName").innerHTML = "";
+			document.getElementById("customerPvs").innerHTML = "";
+			document.getElementById("customerAmount").innerHTML = "";
+
 			res = this.responseText;
-			document.getElementById("msg").innerHTML = res;
 			if (!(res.includes("<br>"))) {
 				document.getElementById("msg").innerHTML = "Unsuccessfull : "
 						+ res;

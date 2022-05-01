@@ -109,67 +109,11 @@ a
 
 
 
-)
-{
-background-color
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-#555
-
-
-
-
-
-
-
-
-;
-color
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-white
-
-
-
-
-
-
-
-
-;
+) {
+	background-color: #555;
+	color: white;
 }
+
 div.content {
 	margin-left: 190px;
 	padding: 1px 16px;
@@ -213,6 +157,9 @@ div.content {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 
 </head>
@@ -251,14 +198,15 @@ div.content {
 										class="fa fa-street-view" style="padding-right: 10px;"></i><strong>Orgization
 											chart</strong><br /> <small>Tree view</small>
 									</a> <a onclick='treeChartWindow("payment")' class="active"> <i
-										class="fa fa-money" style="padding-right: 10px;"></i> <strong>Payment</strong><br />
-										<small>Payment Summary</small>
+										class="fas fa-money-bill-alt" style="padding-right: 10px;"></i>
+										<strong>Payment</strong><br /> <small>Payment Summary</small>
 									</a>
 									<!-- <a onclick='treeChartWindow("profile")'> <i
 										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
-									<small>Your Details</small> -->
-									</a> --> <a onclick='treeChartWindow("pv")'
-										style="display: none;" id="pv"> <i class="fa fa-calculator"
+									<small>Your Details</small> 
+									</a> -->
+									<a onclick='treeChartWindow("pv")' style="display: none;"
+										id="pv"> <i class="fa fa-calculator"
 										style="padding-right: 10px;"></i> <strong>PV Calculation</strong>
 										<small>Percentage division</small>
 									</a>
@@ -273,10 +221,10 @@ div.content {
 									<br />
     <?php
     include 'config.php';
-    
+
     $sql = "SELECT * FROM customer";
     $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
-    
+
     if (mysqli_num_rows($result) > 0) {
         ?>
     <table style="width: 100%; margin-bottom: 200px;">
@@ -300,7 +248,7 @@ div.content {
 												<td class="centertd" style="border: 1px solid;"><?php echo $row['customerid']; ?></td>
 												<td class="centertd" style="border: 1px solid;"><?php echo $row['username']; ?></td>
 												<td class="centertd" style="border: 1px solid;"><?php echo $row['mobileno']; ?></td>
-												<td class="centertd" style="border: 1px solid;"><?php echo $row['mobileno']; ?></td>
+												<td class="centertd" style="border: 1px solid;"><?php echo $row['balanceAmount']; ?></td>
 												<td class="centertd" style="border: 1px solid;"><a
 													href='paid.php?customerid=<?php echo $row['customerid']; ?>'>Paid</a>
 												</td>
@@ -315,95 +263,108 @@ div.content {
     mysqli_close($conn);
     ?>
 </div>
-					<div class="content"
-						style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; display: none; text-align: center;"
-						id="total">
+								<div class="content"
+									style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; display: none; text-align: center;"
+									id="total">
 
 
-						<div style="margin-bottom: 250px;">
-							<label style="color: purple; font-size: 30px;"><center>
-									<b> Earned Summary</b>
-								</center></label>
-							<table style="width: 100%;">
+									<div style="margin-bottom: 250px;">
+										<label style="color: purple; font-size: 30px;"><center>
+												<b> Earned Summary</b>
+											</center></label>
+										<table style="width: 100%;">
 
-								<tr>
-									<td style="text-align: center;"><i style="color: #DAA520;"
-										class='fas fa-money-bill-alt fa-4x'></i></td>
-									<td style="text-align: center;"><i style="color: #DAA520;"
-										class='fas fa-donate fa-4x'></i></td>
+											<tr>
+												<td style="text-align: center;"><i style="color: #DAA520;"
+													class='fas fa-money-bill-alt fa-4x'></i></td>
+												<td style="text-align: center;"><i style="color: #DAA520;"
+													class='fas fa-donate fa-4x'></i></td>
 
-								</tr>
-								<tr>
-									<td style="font-size: 25px; width: 650px; text-align: center;">Earned
-										PV's</td>
-									<td style="font-size: 25px; text-align: center;">Earned Amount</td>
+											</tr>
+											<tr>
+												<td
+													style="font-size: 25px; width: 650px; text-align: center;">Earned
+													PV's</td>
+												<td style="font-size: 25px; text-align: center;">Earned
+													Amount</td>
 
-								</tr>
+											</tr>
 
-								<tr>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="earnedpv">0</td>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="earnedamount">0</td>
+											<tr>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="earnedpv">0</td>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="earnedamount">0</td>
 
-								</tr>
-							</table>
-							<label style="margin-top: 100px; color: purple; font-size: 30px;"><center>
-									<b> Paid Summary</b>
-								</center></label>
-							<table style="width: 100%;">
-								<tr>
-									<td style="text-align: center;"><i style="color: #18A558;"
-										class='fas fa-money-bill-alt fa-4x'></i></td>
-									<td style="text-align: center;"><i style="color: #18A558;"
-										class='fas fa-donate fa-4x'></i></td>
+											</tr>
+										</table>
+										<label
+											style="margin-top: 100px; color: purple; font-size: 30px;"><center>
+												<b> Paid Summary</b>
+											</center></label>
+										<table style="width: 100%;">
+											<tr>
+												<td style="text-align: center;"><i style="color: #18A558;"
+													class='fas fa-money-bill-alt fa-4x'></i></td>
+												<td style="text-align: center;"><i style="color: #18A558;"
+													class='fas fa-donate fa-4x'></i></td>
 
-								</tr>
-								<tr>
-									<td style="font-size: 25px; width: 650px; text-align: center;">Paid
-										PV's</td>
-									<td style="font-size: 25px; text-align: center;">Paid Amount</td>
+											</tr>
+											<tr>
+												<td
+													style="font-size: 25px; width: 650px; text-align: center;">Paid
+													PV's</td>
+												<td style="font-size: 25px; text-align: center;">Paid Amount</td>
 
-								</tr>
+											</tr>
 
-								<tr>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="paidpv">0</td>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="paidamount">0</td>
+											<tr>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="paidpv">0</td>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="paidamount">0</td>
 
-								</tr>
-							</table>
-							<label style="color: purple; font-size: 30px; margin-top: 100px;"><center>
-									<b> Balance Summary</b>
-								</center></label>
-							<table style="width: 100%;">
-								<tr>
-									<td style="text-align: center;"><i style="color: red;"
-										class='fas fa-money-bill-alt fa-4x'></i></td>
-									<td style="text-align: center;"><i style="color: red;"
-										class='fas fa-donate fa-4x'></i></td>
+											</tr>
+										</table>
+										<label
+											style="color: purple; font-size: 30px; margin-top: 100px;"><center>
+												<b> Balance Summary</b>
+											</center></label>
+										<table style="width: 100%;">
+											<tr>
+												<td style="text-align: center;"><i style="color: red;"
+													class='fas fa-money-bill-alt fa-4x'></i></td>
+												<td style="text-align: center;"><i style="color: red;"
+													class='fas fa-donate fa-4x'></i></td>
 
-								</tr>
-								<tr>
-									<td style="font-size: 25px; width: 650px; text-align: center;">Balance
-										PV's</td>
-									<td style="font-size: 25px; text-align: center;">Balance Amount</td>
+											</tr>
+											<tr>
+												<td
+													style="font-size: 25px; width: 650px; text-align: center;">Balance
+													PV's</td>
+												<td style="font-size: 25px; text-align: center;">Balance
+													Amount</td>
 
-								</tr>
+											</tr>
 
-								<tr>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="balancepv">0</td>
-									<td style="font-size: 20px; color: blue; text-align: center;"
-										id="balanceamount">0</td>
+											<tr>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="balancepv">0</td>
+												<td
+													style="font-size: 20px; color: blue; text-align: center;"
+													id="balanceamount">0</td>
 
-								</tr>
-							</table>
-						</div>
-					</div>
-
-					</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+						
+						</td>
 					</tr>
 				</table>
 			</div>
