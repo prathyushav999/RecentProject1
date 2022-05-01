@@ -378,6 +378,9 @@ to {
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+
+   <script language="javascript" type="text/javascript" src="addcustomer.js"></script>
+
 </head>
 <body style="background-image: url('dummy/building15.jpg'); background-size: 100% 100%;">
 	<div>
@@ -639,9 +642,10 @@ function loginValidation()
 	  const xhttp = new XMLHttpRequest();
 	  xhttp.onload = function() {
 		 var dbPassword=this.responseText;
-		 
+		 alert(customerId);
+		 addcustomer(customerId);
 		 if (dbPassword == password) {
-			 const url = "http://localhost/SREA/orgchart.html?customerId="+customerId;
+			 const url = "http://localhost/SREA/orgchart.html";
 		        window.location.href = url;
 			 return ;
 			} else {

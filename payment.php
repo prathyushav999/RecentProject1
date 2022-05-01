@@ -161,6 +161,8 @@ div.content {
 <script src='https://kit.fontawesome.com/a076d05399.js'
 	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
+   <script language="javascript" type="text/javascript" src="addcustomer.js"></script>
+
 
 </head>
 <body style="background-color: #000;">
@@ -210,6 +212,7 @@ div.content {
 										style="padding-right: 10px;"></i> <strong>PV Calculation</strong>
 										<small>Percentage division</small>
 									</a>
+									
 									<!-- <a class="active" href="#org">Organization Chart</a> 
 									<a href="#payment">Payment</a>
 									<a href="#pv">PV Calculation</a>  -->
@@ -393,8 +396,10 @@ div.content {
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		customerId = localStorage.getItem("customerid");
+		
+		if (customerId != null) {
+			customerId = localStorage.getItem("customerid");
 			
 			if (customerId == 'SREA-0') {
 				document.getElementById("main-content").style.display = "block";
@@ -445,34 +450,33 @@ div.content {
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		var customerId = localStorage.getItem("customerid");
+		
+		if (customerId!= null) {
+			customerId = localStorage.getItem("customerid");
+
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/orgchart.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/orgchart.html";
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.php?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/payment.php";
+
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/SREA/profile.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/profile.html";
 				window.location.href = url;
 				return;
 			}
 			if (screen == "pv") {
-				const url = "http://localhost/SREA/pvcalculation.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/pvcalculation.html";
 				window.location.href = url;
 				return;
 			}
-
 		}
 	}
 </script>

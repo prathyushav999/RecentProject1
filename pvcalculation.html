@@ -15,12 +15,14 @@
 	border: 1px solid;
 	text-align: center;
 }
+
 .padding {
 	height: 30px;
 	border: 1px solid;
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
 body {
 	margin: 0;
 	font-family: "Lato", sans-serif;
@@ -61,11 +63,11 @@ body {
 	margin: 0 -4px;
 }
 
-.sidebar a:hover:not(.active)
-{
-background-color:#555;
-color:white;
+.sidebar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
 }
+
 div.content {
 	margin-left: 190px;
 	padding: 1px 16px;
@@ -110,6 +112,8 @@ div.content {
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="sideMenu.css">
+   <script language="javascript" type="text/javascript" src="addcustomer.js"></script>
+
 
 </head>
 <body style="background-color: #000;">
@@ -154,7 +158,8 @@ div.content {
 									<!-- <a onclick='treeChartWindow("profile")'> <i
 										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
 									<small>Your Details</small> 
-									</a> --><a onclick='treeChartWindow("pv")' class="active"
+									</a> -->
+									<a onclick='treeChartWindow("pv")' class="active"
 										style="display: none;" id="pv"> <i
 										class="fa fa-calculator" style="padding-right: 10px;"></i> <strong>PV
 											Calculation</strong> <small>Percentage division</small>
@@ -162,6 +167,7 @@ div.content {
 									<!-- <a class="active" href="#org">Organization Chart</a> 
 									<a href="#payment">Payment</a>
 									<a href="#pv">PV Calculation</a>  -->
+									
 								</div>
 								<div class="content"
 									style="width: 100%; background-color: #eaeaea;">
@@ -315,11 +321,16 @@ div.content {
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		if ( localStorage.getItem("customerid")!= null) {
+			customerId = localStorage.getItem("customerid");
 			if (customerId == 'SREA-0') {
 				document.getElementById("pv").style.display = "block";
 			}
+			else
+				{
+				document.getElementById("pv").style.display = "none";
+
+				}
 			/* const url = "http://localhost/crud/template.html?customerId="
 				+ customerId;
 			window.location.href = url;
@@ -338,30 +349,31 @@ div.content {
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		var customerId = localStorage.getItem("customerid");
+
+		if (customerId!= null) {
+			customerId = localStorage.getItem("customerid");
+
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/orgchart.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/orgchart.html";
+				 
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.php?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/payment.php";
+
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/SREA/profile.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/profile.html";
 				window.location.href = url;
 				return;
 			}
 			if (screen == "pv") {
-				const url = "http://localhost/SREA/pvcalculation.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/pvcalculation.html";
 				window.location.href = url;
 				return;
 			}

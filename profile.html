@@ -23,17 +23,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src='https://kit.fontawesome.com/a076d05399.js'
+<script src='https://kit.fontawesome.com/a076d05399.js'
 	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
+   <script language="javascript" type="text/javascript" src="addcustomer.js"></script>
+
 </head>
 <body>
 
 	<div id="site-content" style="background-color: #000;">
 		<div class="site-header">
 			<div>
-				<a href="" id="branding" style="height:58px;width: 1300px;"> <img style="padding-left:20px;"
-					src="images/logo.png" alt="" class="logo">
+				<a href="" id="branding" style="height: 58px; width: 1300px;"> <img
+					style="padding-left: 20px;" src="images/logo.png" alt=""
+					class="logo">
 					<div class="logo-text">
 						<h1 class="site-title">SREA Real Estates</h1>
 						<small class="site-description"><b>Where dreams come
@@ -54,27 +57,31 @@
 					<tr>
 						<td>
 							<nav>
-								<ul class="mcd-menu" style="height:700px;">
-			
+								<ul class="mcd-menu" style="height: 700px;">
+
 									<li><a onclick='treeChartWindow("chart")'> <i
 											class="fa fa-street-view"></i> <strong>Orgization
 												chart</strong> <small>Tree view</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("payment")'> <i
-											class="fa fa-money"></i> <strong>Payment</strong> <small>Payment Summary</small>
+											class="fa fa-money"></i> <strong>Payment</strong> <small>Payment
+												Summary</small>
 									</a></li>
 									<li><a onclick='treeChartWindow("profile")' class="active">
 											<i class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
 												Details</small>
 									</a></li>
-									<li><a onclick='treeChartWindow("pv")' style="display:none;" id="pv"> <i
-											class="fa fa-user-circle"></i> <strong>PV Calculation</strong> <small>Percentage division</small>
-									</a></li>
+									<li><a onclick='treeChartWindow("pv")'
+										style="display: none;" id="pv"> <i
+											class="fa fa-calculator"></i> <strong>PV
+												Calculation</strong> <small>Percentage division</small>
+									</a>
+									
+									</li>
 								</ul>
 							</nav>
 						</td>
-						<td style="width:100%;"><div>
-								Hello Profile screen</div></td>
+						<td style="width: 100%;"><div>Hello Profile screen</div></td>
 					</tr>
 				</table>
 			</div>
@@ -85,7 +92,7 @@
 </body>
 <script type="text/javascript">
 	var queryString = new Array();
-	var customerId = "";
+	var customerId = localStorage.getItem("customerid");
 	window.onload = function() {
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {
@@ -97,8 +104,8 @@
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		if (localStorage.getItem("customerid") != null) {
+			customerId = localStorage.getItem("customerid");
 			if (customerId == 'SREA-0') {
 				document.getElementById("pv").style.display = "block";
 			} 
@@ -120,33 +127,32 @@
 				}
 			}
 		}
-		if (queryString["customerId"] != null) {
-			customerId = queryString["customerId"];
+		var customerId = localStorage.getItem("customerid");
+
+		if (customerId!= null) {
+
 			const url = "";
 			if (screen == "chart") {
-				const url = "http://localhost/SREA/orgchart.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/orgchart.html";
 				window.location.href = url;
 				return;
 			}
 			if (screen == "payment") {
-				const url = "http://localhost/SREA/payment.php?customerId="+customerId;
+				const url = "http://localhost/SREA/payment.php";
+
 				window.location.href = url;
 				return;
 			}
 			if (screen == "profile") {
-				const url = "http://localhost/SREA/profile.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/profile.html";
 				window.location.href = url;
 				return;
 			}
 			if (screen == "pv") {
-				const url = "http://localhost/SREA/pvcalculation.html?customerId="
-						+ customerId;
+				const url = "http://localhost/SREA/pvcalculation.html";
 				window.location.href = url;
 				return;
 			}
-
 		}
 	}
 </script>

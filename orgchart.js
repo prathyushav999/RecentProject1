@@ -128,9 +128,10 @@ window.onload = function() {
 				}
 			}
 		}
-		var customerId = ""
-		if (queryString["customerId"] != null) {
-			id = queryString["customerId"];
+		var customerId = 	localStorage.getItem("customerid");
+
+		if (customerId != null) {
+			id = customerId;
 		}
 
 		var data = {
@@ -140,6 +141,11 @@ window.onload = function() {
 		if (id != null) {
 			if (id == 'SREA-0') {
 				document.getElementById("pv").style.display = "block";
+			}
+			else
+			{
+			document.getElementById("pv").style.display = "none";
+
 			}
 
 		}
@@ -160,10 +166,10 @@ window.onload = function() {
 				}
 			}
 		}
-		var customerId = ""
-		if (queryString["customerId"] != null) {
-			const url = "http://localhost/SREA/orgchart.html?customerId="
-					+ customerId;
+		var customerId = 	localStorage.getItem("customerid");
+
+		if (customerId != null) {
+			const url = "http://localhost/SREA/orgchart.html";
 			window.location.href = url;
 			return;
 		}
