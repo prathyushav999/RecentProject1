@@ -1,28 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-.padding {
-	height: 30px;
-	border: 1px solid;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-.centertd {
-	height: 30px;
-	text-align: center;
-}
-</style>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
 <title>Document</title>
-<link href="template.css" rel="stylesheet" />
+<link href="orgchart.css" rel="stylesheet" />
 
 <title>SREA Real Estates | Contact</title>
+<style>
+.centertd {
+	height: 30px;
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #000000;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+.sidebar a {
+	display: block;
+	color: white;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.sidebar a.active {
+	/* background-color: #04AA6D;
+	color: white; */
+	position: relative;
+	color: #e67e22;
+	border: 0;
+	/*border-top: 4px solid #e67e22;
+  border-bottom: 4px solid #e67e22;
+  margin-top: -4px;*/
+	box-shadow: 0 0 5px #DDD;
+	-moz-box-shadow: 0 0 5px #DDD;
+	-webkit-box-shadow: 0 0 5px #DDD;
+	/* == */
+	border-left: 4px solid #e67e22;
+	border-right: 4px solid #e67e22;
+	margin: 0 -4px;
+}
+
+.sidebar
+
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+
+:hover
+
+
+
+
+
+
+
+
+
+
+:not
+
+
+
+
+ 
+
+
+
+
+(
+.active
+
+
+
+
+ 
+
+
+
+
+)
+{
+background-color
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+#555
+
+
+
+
+
+
+
+
+;
+color
+
+
+
+
+
+
+
+
+:
+
+
+
+
+ 
+
+
+
+
+white
+
+
+
+
+
+
+
+
+;
+}
+div.content {
+	margin-left: 190px;
+	padding: 1px 16px;
+	height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar a {
+		float: left;
+	}
+	div.content {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+}
+</style>
 
 <!-- Loading third party fonts -->
 <link
@@ -39,9 +213,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src='https://kit.fontawesome.com/a076d05399.js'
-	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
 
 </head>
@@ -52,92 +223,91 @@
 	<div id="site-content" style="background-color: #000;">
 		<div class="site-header">
 			<div>
-				<a href="" id="branding" style="height: 58px; width: 1300px;"> <img
-					style="padding-left: 20px;" src="images/logo.png" alt=""
-					class="logo">
-					<div class="logo-text">
-						<h1 class="site-title">SREA Real Estates</h1>
-						<small class="site-description"><b>Where dreams come true.</b></small>
+				<table style="width: 100%;">
+					<tr>
+						<td style="height: 58px; width: 50%;"><a href="" id="branding"> <img
+								style="padding-left: 20px;" src="images/logo.png" alt=""
+								class="logo">
+								<div class="logo-text">
+									<h1 class="site-title">SREA Real Estates</h1>
+									<small class="site-description"><b>Where dreams come true.</b></small>
 
-					</div>
-					<div style="padding-top: 56px;">
-						<a href="#" class="btn btn-info"> <span class="fa fa-power-off"></span>
-							Log out
+								</div>
+						</a></td>
+						<td
+							style="height: 58px; width: 50%; text-align: right; padding-right: 20px;">
+							<a href="#" class="btn btn-info"> <span class="fa fa-power-off"></span>
+								Log out
 						</a>
 
-					</div>
-				</a>
 
-			
-				<table>
+						</td>
+					</tr>
 					<tr>
 						<td>
-							<nav>
-								<ul class="mcd-menu"
-									style="position:relative; margin-top:-125%;">
-									<!-- 			<li class="menu-item"><a href="about.html">About</a></li> -->
-									<li><a onclick='treeChartWindow("chart")'> <i
-											class="fa fa-street-view"></i> <strong>Orgization chart</strong>
-											<small>Tree view</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("payment")' class="active"> <i
-											class="fa fa-money-bill-alt"></i> <strong>Payment</strong> <small>Payment
-												Summary</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("profile")'> <i
-											class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
-												Details</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("pv")' style="display: none;"
-										id="pv"> <i class="fa fa-user-circle"></i> <strong>PV
-												Calculation</strong> <small>Percentage division</small>
-									</a></li>
-								</ul>
-							</nav>
-						</td>
-						<td style="width: 100%; background-color: #fff;">
-							<div
-								style="padding-left: 20px; padding-top: 10px; display: none;"
-								id="main-content">
-								<h2>All Customer Records</h2>
-								<br />
+							<div>
+								<div class="sidebar">
+									<a onclick='treeChartWindow("chart")'> <i
+										class="fa fa-street-view" style="padding-right: 10px;"></i><strong>Orgization
+											chart</strong><br /> <small>Tree view</small>
+									</a> <a onclick='treeChartWindow("payment")' class="active"> <i
+										class="fa fa-money" style="padding-right: 10px;"></i> <strong>Payment</strong><br />
+										<small>Payment Summary</small>
+									</a>
+									<!-- <a onclick='treeChartWindow("profile")'> <i
+										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
+									<small>Your Details</small> -->
+									</a> --> <a onclick='treeChartWindow("pv")'
+										style="display: none;" id="pv"> <i class="fa fa-calculator"
+										style="padding-right: 10px;"></i> <strong>PV Calculation</strong>
+										<small>Percentage division</small>
+									</a>
+									<!-- <a class="active" href="#org">Organization Chart</a> 
+									<a href="#payment">Payment</a>
+									<a href="#pv">PV Calculation</a>  -->
+								</div>
+								<div class="content"
+									style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; display: none; text-align: center;"
+									id="main-content">
+									<h2 style="color: #e67e22;">All Customer Records</h2>
+									<br />
     <?php
     include 'config.php';
-
+    
     $sql = "SELECT * FROM customer";
     $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
-
+    
     if (mysqli_num_rows($result) > 0) {
         ?>
-    <table cellpadding="7px" style="width: 100%;">
-									<thead>
-										<th class="centertd"
-											style="background-color: #87ceeb; color: #fff; border: 2px solid black;">Id</th>
-										<th class="centertd"
-											style="background-color: #87ceeb; color: #fff; border: 2px solid black;">Name</th>
-										<th class="centertd"
-											style="background-color: #87ceeb; color: #fff; border: 2px solid black;">Phone</th>
-										<th class="centertd"
-											style="background-color: #87ceeb; color: #fff; border: 2px solid black;">Amount</th>
-										<th class="centertd"
-											style="background-color: #87ceeb; color: #fff; border: 2px solid black;">Action</th>
-									</thead>
-									<tbody>
+    <table style="width: 100%; margin-bottom: 200px;">
+										<thead>
+											<th
+												style="text-align: center; font-size: 18px; background-color: #04AA6D; color: #fff; border: 1px solid black; height: 40px;">Id</th>
+											<th
+												style="text-align: center; font-size: 18px; background-color: #04AA6D; color: #fff; border: 1px solid black; height: 40px;">Name</th>
+											<th
+												style="text-align: center; font-size: 18px; background-color: #04AA6D; color: #fff; border: 1px solid black; height: 40px;">Phone</th>
+											<th
+												style="text-align: center; font-size: 18px; background-color: #04AA6D; color: #fff; border: 1px solid black; height: 40px;">Amount</th>
+											<th
+												style="text-align: center; font-size: 18px; background-color: #04AA6D; color: #fff; border: 1px solid black; height: 40px;">Action</th>
+										</thead>
+										<tbody>
           <?php
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <tr>
-											<td class="centertd" style="border: 1px solid;"><?php echo $row['customerid']; ?></td>
-											<td class="centertd" style="border: 1px solid;"><?php echo $row['username']; ?></td>
-											<td class="centertd" style="border: 1px solid;"><?php echo $row['mobileno']; ?></td>
-											<td class="centertd" style="border: 1px solid;"><?php echo $row['balanceAmount']; ?></td>
-											<td class="centertd" style="border: 1px solid;"><a
-												href='paid.php?customerid=<?php echo $row['customerid']; ?>'>Paid</a>
-											</td>
-										</tr>
+												<td class="centertd" style="border: 1px solid;"><?php echo $row['customerid']; ?></td>
+												<td class="centertd" style="border: 1px solid;"><?php echo $row['username']; ?></td>
+												<td class="centertd" style="border: 1px solid;"><?php echo $row['mobileno']; ?></td>
+												<td class="centertd" style="border: 1px solid;"><?php echo $row['mobileno']; ?></td>
+												<td class="centertd" style="border: 1px solid;"><a
+													href='paid.php?customerid=<?php echo $row['customerid']; ?>'>Paid</a>
+												</td>
+											</tr>
           <?php } ?>
         </tbody>
-								</table>
+									</table>
   <?php
     } else {
         echo "<h2>No Record Found</h2>";
@@ -145,107 +315,99 @@
     mysqli_close($conn);
     ?>
 </div>
+					<div class="content"
+						style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; display: none; text-align: center;"
+						id="total">
 
-							<div
-								style="padding-top: 50px; padding-left: 20px; display: none;"
-								id="total">
 
+						<div style="margin-bottom: 250px;">
+							<label style="color: purple; font-size: 30px;"><center>
+									<b> Earned Summary</b>
+								</center></label>
+							<table style="width: 100%;">
 
-								<div id="table12"
-									style="position: relative; text-align: center;">
-									<label style="color: purple; font-size: 30px;"><center>
-											<b> Earned Summary</b>
-										</center></label>
-									<table style="width: 100%;">
+								<tr>
+									<td style="text-align: center;"><i style="color: #DAA520;"
+										class='fas fa-money-bill-alt fa-4x'></i></td>
+									<td style="text-align: center;"><i style="color: #DAA520;"
+										class='fas fa-donate fa-4x'></i></td>
 
-										<tr>
-											<td style="text-align: center;"><i style="color: #DAA520;"
-												class='fas fa-money-bill-alt fa-4x'></i></td>
-											<td style="text-align: center;"><i style="color: #DAA520;"
-												class='fas fa-donate fa-4x'></i></td>
+								</tr>
+								<tr>
+									<td style="font-size: 25px; width: 650px; text-align: center;">Earned
+										PV's</td>
+									<td style="font-size: 25px; text-align: center;">Earned Amount</td>
 
-										</tr>
-										<tr>
-											<td
-												style="font-size: 25px; width: 650px; text-align: center;">Earned
-												PV's</td>
-											<td style="font-size: 25px; text-align: center;">Earned
-												Amount</td>
+								</tr>
 
-										</tr>
+								<tr>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="earnedpv">0</td>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="earnedamount">0</td>
 
-										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="earnedpv">0</td>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="earnedamount">0</td>
+								</tr>
+							</table>
+							<label style="margin-top: 100px; color: purple; font-size: 30px;"><center>
+									<b> Paid Summary</b>
+								</center></label>
+							<table style="width: 100%;">
+								<tr>
+									<td style="text-align: center;"><i style="color: #18A558;"
+										class='fas fa-money-bill-alt fa-4x'></i></td>
+									<td style="text-align: center;"><i style="color: #18A558;"
+										class='fas fa-donate fa-4x'></i></td>
 
-										</tr>
-									</table>
-									<label
-										style="margin-top: 100px; color: purple; font-size: 30px;"><center>
-											<b> Paid Summary</b>
-										</center></label>
-									<table style="width: 100%;">
-										<tr>
-											<td style="text-align: center;"><i style="color: #18A558;"
-												class='fas fa-money-bill-alt fa-4x'></i></td>
-											<td style="text-align: center;"><i style="color: #18A558;"
-												class='fas fa-donate fa-4x'></i></td>
+								</tr>
+								<tr>
+									<td style="font-size: 25px; width: 650px; text-align: center;">Paid
+										PV's</td>
+									<td style="font-size: 25px; text-align: center;">Paid Amount</td>
 
-										</tr>
-										<tr>
-											<td
-												style="font-size: 25px; width: 650px; text-align: center;">Paid
-												PV's</td>
-											<td style="font-size: 25px; text-align: center;">Paid Amount</td>
+								</tr>
 
-										</tr>
+								<tr>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="paidpv">0</td>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="paidamount">0</td>
 
-										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="paidpv">0</td>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="paidamount">0</td>
+								</tr>
+							</table>
+							<label style="color: purple; font-size: 30px; margin-top: 100px;"><center>
+									<b> Balance Summary</b>
+								</center></label>
+							<table style="width: 100%;">
+								<tr>
+									<td style="text-align: center;"><i style="color: red;"
+										class='fas fa-money-bill-alt fa-4x'></i></td>
+									<td style="text-align: center;"><i style="color: red;"
+										class='fas fa-donate fa-4x'></i></td>
 
-										</tr>
-									</table>
-									<label
-										style="color: purple; font-size: 30px; margin-top: 100px;"><center>
-											<b> Balance Summary</b>
-										</center></label>
-									<table style="width: 100%;">
-										<tr>
-											<td style="text-align: center;"><i style="color: red;"
-												class='fas fa-money-bill-alt fa-4x'></i></td>
-											<td style="text-align: center;"><i style="color: red;"
-												class='fas fa-donate fa-4x'></i></td>
+								</tr>
+								<tr>
+									<td style="font-size: 25px; width: 650px; text-align: center;">Balance
+										PV's</td>
+									<td style="font-size: 25px; text-align: center;">Balance Amount</td>
 
-										</tr>
-										<tr>
-											<td
-												style="font-size: 25px; width: 650px; text-align: center;">Balance
-												PV's</td>
-											<td style="font-size: 25px; text-align: center;">Balance
-												Amount</td>
+								</tr>
 
-										</tr>
+								<tr>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="balancepv">0</td>
+									<td style="font-size: 20px; color: blue; text-align: center;"
+										id="balanceamount">0</td>
 
-										<tr>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="balancepv">0</td>
-											<td style="font-size: 20px; color: blue; text-align: center;"
-												id="balanceamount">0</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 
-										</tr>
-									</table>
-								</div>
-							</div>
-						</td>
-
+					</td>
 					</tr>
 				</table>
 			</div>
+
 		</div>
 	</div>
 
@@ -279,11 +441,6 @@
 			} else {
 				document.getElementById("total").style.display = "block";
 				data(customerId);
-
-			/* const url = "http://localhost/crud/template.html?customerId="
-				+ customerId;
-			window.location.href = url;
-			return; */
 		 }
 		}
 	};
