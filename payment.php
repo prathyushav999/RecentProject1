@@ -150,16 +150,15 @@ div.content {
 										class="fas fa-money-bill-alt" style="padding-right: 10px;"></i>
 										<strong>Payment</strong><br /> <small>Payment Summary</small>
 									</a>
-									<!-- <a onclick='treeChartWindow("profile")'> <i
-										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
-									<small>Your Details</small> 
-									</a> -->
 									<a onclick='treeChartWindow("pv")' style="display: none;"
 										id="pv"> <i class="fa fa-calculator"
 										style="padding-right: 10px;"></i> <strong>PV Calculation</strong>
 										<small>Percentage division</small>
 									</a>
-									
+									<a onclick='treeChartWindow("profile")' id="profile"> <i
+										class="fa fa-user-circle" style="padding-right: 10px;"></i> <strong>Profile</strong><br />
+									<small>Your Details</small>
+									</a>
 									<!-- <a class="active" href="#org">Organization Chart</a> 
 									<a href="#payment">Payment</a>
 									<a href="#pv">PV Calculation</a>  -->

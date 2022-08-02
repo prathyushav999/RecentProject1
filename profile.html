@@ -2,11 +2,96 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
+<title>Document</title>
+<link href="orgchart.css" rel="stylesheet" />
 
 <title>SREA Real Estates | Contact</title>
+<style>
+.centertd {
+	height: 30px;
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #000000;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+.sidebar a {
+	display: block;
+	color: white;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.sidebar a.active {
+	/* background-color: #04AA6D;
+	color: white; */
+	position: relative;
+	color: #e67e22;
+	border: 0;
+	/*border-top: 4px solid #e67e22;
+  border-bottom: 4px solid #e67e22;
+  margin-top: -4px;*/
+	box-shadow: 0 0 5px #DDD;
+	-moz-box-shadow: 0 0 5px #DDD;
+	-webkit-box-shadow: 0 0 5px #DDD;
+	/* == */
+	border-left: 4px solid #e67e22;
+	border-right: 4px solid #e67e22;
+	margin: 0 -4px;
+}
+
+.sidebar a :hover :not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+div.content {
+	margin-left: 190px;
+	padding: 1px 16px;
+	height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar a {
+		float: left;
+	}
+	div.content {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+}
+
+.avatar {
+	width: 200px;
+	height: 200px;
+}
+</style>
 
 <!-- Loading third party fonts -->
 <link
@@ -23,65 +108,210 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script src='https://kit.fontawesome.com/a076d05399.js'
 	crossorigin='anonymous'></script>
 <link rel="stylesheet" href="sideMenu.css">
-   <script language="javascript" type="text/javascript" src="addcustomer.js"></script>
+<script language="javascript" type="text/javascript"
+	src="addcustomer.js"></script>
+
 
 </head>
-<body onpageshow="checksession()" >
+<body onpageshow="checksession()" style="background-color: #000;">
+	<script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
+
 
 	<div id="site-content" style="background-color: #000;">
 		<div class="site-header">
 			<div>
-				<a href="" id="branding" style="height: 58px; width: 1300px;"> <img
-					style="padding-left: 20px;" src="images/logo.png" alt=""
-					class="logo">
-					<div class="logo-text">
-						<h1 class="site-title">SREA Real Estates</h1>
-						<small class="site-description"><b>Where dreams come
-								true.</b></small>
+				<table style="width: 100%;">
+					<tr>
+						<td style="width: 50%;"><a href="" id="branding"> <img
+								style="padding-left: 20px;" src="images/logo.png" alt=""
+								class="logo">
+								<div class="logo-text">
+									<h1 class="site-title">SREA Real Estates</h1>
+									<small class="site-description"><b>Where dreams
+											come true.</b></small>
 
-					</div>
-					<div style="padding-top: 56px;">
-						<a onclick='logout()' href="#" class="btn btn-info"> <span
-							class="fa fa-power-off"></span> Log out
+								</div>
+						</a></td>
+						<td style="width: 50%; text-align: right; padding-right: 20px;">
+							<a onclick='logout()' href="#" class="btn btn-info"> <span
+								class="fa fa-power-off"></span> Log out
 						</a>
 
-					</div>
-				</a>
 
-			</div>
-			<div>
-				<table>
+						</td>
+					</tr>
 					<tr>
 						<td>
-							<nav>
-								<ul class="mcd-menu" style="height: 700px;">
-
-									<li><a onclick='treeChartWindow("chart")'> <i
-											class="fa fa-street-view"></i> <strong>Orgization
-												chart</strong> <small>Tree view</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("payment")'> <i
-											class="fa fa-money"></i> <strong>Payment</strong> <small>Payment
-												Summary</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("profile")' class="active">
-											<i class="fa fa-user-circle"></i> <strong>Profile</strong> <small>Your
-												Details</small>
-									</a></li>
-									<li><a onclick='treeChartWindow("pv")'
-										style="display: none;" id="pv"> <i
-											class="fa fa-calculator"></i> <strong>PV
-												Calculation</strong> <small>Percentage division</small>
+							<div>
+								<div class="sidebar">
+									<a onclick='treeChartWindow("chart")'> <i
+										class="fa fa-street-view" style="padding-right: 10px;"></i><strong>Orgization
+											chart</strong><br /> <small>Tree view</small>
+									</a> <a onclick='treeChartWindow("payment")'> <i
+										class="fas fa-money-bill-alt" style="padding-right: 10px;"></i>
+										<strong>Payment</strong><br /> <small>Payment Summary</small>
+									</a> <a onclick='treeChartWindow("pv")' style="display: none;"
+										id="pv"> <i class="fa fa-calculator"
+										style="padding-right: 10px;"></i> <strong>PV
+											Calculation</strong> <small>Percentage division</small>
+									</a> <a onclick='treeChartWindow("profile")' class="active"
+										id="profile"> <i class="fa fa-user-circle"
+										style="padding-right: 10px;"></i> <strong>Profile</strong><br />
+										<small>Your Details</small>
 									</a>
 									
-									</li>
-								</ul>
-							</nav>
+								</div>
+
+								<div class="content"
+									style="position: fixed; overflow: scroll; padding-left: 50px; padding-right: 50px; background-color: white; width: 88%; padding-top: 10px; padding-bottom: 50px; text-align: center;">
+
+									<div style="background-color: #fff;">
+										<div class="container bootstrap snippets bootdey">
+											<h1 class="text-primary">Edit Profile</h1>
+											<hr>
+											<div class="row">
+												<!-- left column -->
+												<div class="col-md-3">
+													<div class="text-center">
+														<img
+															src="https://bootdey.com/img/Content/avatar/avatar7.png"
+															class="avatar img-circle img-thumbnail" alt="avatar">
+														<!-- <h6>Upload a different photo...</h6>
+
+														<input type="file" class="form-control"> -->
+													</div>
+												</div>
+
+												<!-- edit form column -->
+												<div class="col-md-9 personal-info">
+													<div  id="message"  class="alert alert-info alert-dismissable">
+														<a class="panel-close close" data-dismiss="alert">×</a> <i
+															class="fa fa-coffee"></i> &nbsp;Welcome to <strong>SREA</strong>
+														. Here you go and update your details.
+													</div>
+													<h3>Personal info</h3>
+
+													<form class="form-horizontal" role="form">
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Customer
+																Id:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="customerid" type="text"
+																	readonly="true" value="dey-dey">
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="col-lg-3 control-label">First Name:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="first" type="text"
+																	value="dey-dey">
+															</div>
+														</div>
+														<!-- <div class="form-group">
+															<label class="col-lg-3 control-label">Time Zone:</label>
+															<div class="col-lg-8">
+																<div class="ui-select">
+																	<select id="user_time_zone" class="form-control">
+																		<option value="Hawaii">(GMT-10:00) Hawaii</option>
+																		<option value="Alaska">(GMT-09:00) Alaska</option>
+																		<option value="Pacific Time (US &amp; Canada)">(GMT-08:00)
+																			Pacific Time (US &amp; Canada)</option>
+																		<option value="Arizona">(GMT-07:00) Arizona</option>
+																		<option value="Mountain Time (US &amp; Canada)">(GMT-07:00)
+																			Mountain Time (US &amp; Canada)</option>
+																		<option value="Central Time (US &amp; Canada)"
+																			selected="selected">(GMT-06:00) Central Time
+																			(US &amp; Canada)</option>
+																		<option value="Eastern Time (US &amp; Canada)">(GMT-05:00)
+																			Eastern Time (US &amp; Canada)</option>
+																		<option value="Indiana (East)">(GMT-05:00)
+																			Indiana (East)</option>
+																	</select>
+																</div>
+															</div>
+														</div> -->
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Last Name:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="last" type="text"
+																	value="bootdey">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Mobile:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="mobile" type="text"
+																	value="">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Email:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="email" type="text"
+																	value="">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Sponser Id:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="sponserid"
+																	readonly="true" type="text" value="dey-dey">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Sponser
+																Name:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="sponsername"
+																	readonly="true" type="text" value="dey-dey">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Aadhar
+																Number:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="aadhar" type="text"
+																	value="janesemail@gmail.com">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-lg-3 control-label">City:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="address" type="text"
+																	value="">
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="col-lg-3 control-label">Gender:</label>
+															<div class="col-lg-8">
+																<input class="form-control" id="gender" type="text"
+																	value="">
+															</div>
+														</div>
+
+													</form>
+													<div style="margin-bottom: 10%;"submit">
+														<center>
+															<button onclick='updateData();' href="#"
+																class="btn btn-info">
+																<span class="fa fa-save"></span> submit
+															</button>
+
+														</center>
+													</div>
+												</div>
+											</div>
+										</div>
+										<hr>
+									</div>
+								</div>
 						</td>
-						<td style="width: 100%;"><div>Hello Profile screen</div></td>
 					</tr>
 				</table>
 			</div>
@@ -89,10 +319,17 @@
 		</div>
 	</div>
 
+
+
+
+
 </body>
+
 <script type="text/javascript">
+
 	var queryString = new Array();
 	var customerId = localStorage.getItem("customerid");
+	
 	window.onload = function() {
 		if (localStorage.getItem("customerid")== "null") {
 			window.location.href = '/SREA/login.html';
@@ -107,18 +344,18 @@
 				}
 			}
 		}
-		if (localStorage.getItem("customerid") != null) {
+		data(customerId);
+		
+		if (customerId != null) {
 			customerId = localStorage.getItem("customerid");
+			
 			if (customerId == 'SREA-0') {
 				document.getElementById("pv").style.display = "block";
-			} 
-			/* const url = "http://localhost/SREA/template.html?customerId="
-				+ customerId;
-			window.location.href = url;
-			return; */
+			} else {
+				document.getElementById("pv").style.display = "none";
+		 }
 		}
 	};
-
 	function treeChartWindow(screen) {
 		if (queryString.length == 0) {
 			if (window.location.search.split('?').length > 1) {
@@ -130,9 +367,9 @@
 				}
 			}
 		}
-		var customerId = localStorage.getItem("customerid");
-
-		if (customerId!= null) {
+		
+		if (customerId != null) {
+			customerId = localStorage.getItem("customerid");
 
 			const url = "";
 			if (screen == "chart") {
@@ -158,6 +395,62 @@
 			}
 		}
 	}
+	function data(customerId) {
+
+		const xhttp = new XMLHttpRequest();
+
+		xhttp.onload = function() {
+			var res = this.responseText;
+
+			const resArray = res.split(",");
+
+			if (res != "") {
+				document.getElementById("customerid").value = resArray[0];
+				document.getElementById("first").value = resArray[1];
+				document.getElementById("last").value = resArray[2];
+				document.getElementById("mobile").value = resArray[3];
+				document.getElementById("email").value = resArray[4];
+				document.getElementById("sponserid").value = resArray[5];
+				document.getElementById("sponsername").value = resArray[6];
+				document.getElementById("aadhar").value = resArray[7];
+				document.getElementById("address").value = resArray[8];
+				document.getElementById("gender").value = resArray[9];
+
+			}
+		}
+		xhttp.open("GET", "customerprofile.php?customerid=" + customerId);
+		xhttp.send();
+	}
+	function updateData() {
+
+		var customerid = document.getElementById("customerid").value;
+		var first = document.getElementById("first").value;
+		var last = document.getElementById("last").value;
+		var mobile = document.getElementById("mobile").value;
+		var aadhar = document.getElementById("aadhar").value;
+		var address = document.getElementById("address").value;
+		var gender = document.getElementById("gender").value;
+		var email = document.getElementById("email").value;
+		
+		const xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "updatedata.php");
+		xhttp.setRequestHeader("Content-Type", "application/json");
+
+		var data = {
+			customerid : customerid,
+			first : first,
+			last : last,
+			mobile : mobile,
+			aadhar : aadhar,
+			address : address,
+			gender : gender,
+			email : email
+		};
+		xhttp.send(JSON.stringify(data));
+		alert("Successfully Updated !!");
+		const url = "http://localhost/SREA/profile.html";
+		window.location.href = url;
+	}
 	function logout() {
 		console.log("logout");
 		var cookies = document.cookie.split(";");
@@ -176,9 +469,8 @@
 
 		}
 	}
-	function checksession()
-	{
-		if (localStorage.getItem("customerid")== "null") {
+	function checksession() {
+		if (localStorage.getItem("customerid") == "null") {
 			window.location.href = '/SREA/login.html';
 		}
 	}
